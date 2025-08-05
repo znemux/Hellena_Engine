@@ -3,6 +3,8 @@ package org.example.Hell.core;
 public abstract class Scene {
     private String name = "No Name";
 
+    protected Camera camera;
+
     public Scene() {
 
     }

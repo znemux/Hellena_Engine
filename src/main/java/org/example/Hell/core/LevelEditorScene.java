@@ -1,11 +1,14 @@
 package org.example.Hell.core;
 
 import org.example.Hell.core.Rendering.Shader;
+import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
@@ -14,10 +17,10 @@ public class LevelEditorScene extends Scene {
 
     private float[] vertexArray = {
         // position               // color
-        0.5f,-0.5f,0.0f,          1.0f, 0.0f, 0.0f, 1.0f, // Bottom right   0
-        -0.5f, 0.5f, 0.0f,        0.0f, 1.0f, 0.0f, 1.0f, // Top Left       1
-        0.5f, 0.5f, 0.0f,         0.0f, 0.0f, 1.0f, 1.0f, // Top Right      2
-        -0.5f, -0.5f, 0.0f,        1.0f, 1.0f, 0.0f, 1.0f  // Bottom Left   3
+        100.5f,0.5f,0.0f,          1.0f, 0.0f, 0.0f, 1.0f, // Bottom right   0
+        0.5f, 100.5f, 0.0f,        0.0f, 1.0f, 0.0f, 1.0f, // Top Left       1
+        100.5f, 100.5f, 0.0f,         0.0f, 0.0f, 1.0f, 1.0f, // Top Right      2
+        0.5f, 0.5f, 0.0f,        1.0f, 1.0f, 0.0f, 1.0f  // Bottom Left   3
     };
 
 
@@ -38,6 +41,8 @@ public class LevelEditorScene extends Scene {
     @Override
     public void init() {
         setName("LevelEditorScene");
+
+        this.camera = new Camera(new Vector2f());
 
         defaultShader = new Shader("assets/shaders/default.glsl");
         defaultShader.compileAndLink();
@@ -80,7 +85,11 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void update(float delta) {
+        camera.position.x -= delta * 50;
+
         defaultShader.use();
+        defaultShader.uploadMat4f("uProjection", camera.getProjectionMatrix());
+        defaultShader.uploadMat4f("uView", camera.getViewMatrix());
 
         // Bind the VAO
         glBindVertexArray(vaoID);
