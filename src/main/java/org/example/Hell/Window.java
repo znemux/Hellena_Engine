@@ -1,5 +1,11 @@
 package org.example.Hell;
 
+import org.example.Hell.Input.KeyListener;
+import org.example.Hell.Input.MouseListener;
+import org.example.Hell.core.LevelEditorScene;
+import org.example.Hell.core.LevelScene;
+import org.example.Hell.core.Scene;
+import org.example.Hell.util.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -14,12 +20,37 @@ public class Window {
     String title;
     private long glfwWindow;
 
+    public float r, g, b, a;
+
     private static Window window = null;
+    private static Scene currentScene;
+
+
 
     private Window() {
-        this.width = 1920;
-        this.height = 1080;
+        this.width = 1920/3;
+        this.height = 1080/3;
         this.title = "2D engine";
+        r = 1;
+        g = 1;
+        b = 1;
+        a = 1;
+    }
+
+    public static void changeScene(int newScene) {
+        switch (newScene) {
+            case 0:
+                currentScene = new LevelEditorScene();
+                break;
+            case 1:
+                currentScene = new LevelScene();
+                break;
+            default:
+                assert  false : "Unknown scene '" + newScene + "'";
+                break;
+        }
+
+        currentScene.init();
     }
 
     public static Window get() {
@@ -67,6 +98,11 @@ public class Window {
             throw new IllegalStateException("Failed to create GLFW window");
         }
 
+        glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+        glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
+
         // Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);
 
@@ -79,17 +115,33 @@ public class Window {
         // Warning TO NOT REMOVE under any circumstance
         // If you do I will find you
         GL.createCapabilities();
+
+        Window.changeScene(0);
     }
 
     public void loop() {
+        float beginTime = Time.getTime();
+        float endTime = Time.getTime();
+        float delta = -1.0f;
+
         while (!glfwWindowShouldClose(glfwWindow)) {
             // Poll events
             glfwPollEvents();
 
-            glClearColor(0.25f, 0.25f,0.25f, 1.0f);
+            glClearColor(r, g,b, a);
             glClear(GL_COLOR_BUFFER_BIT);
 
+            if (delta >= 0) {
+                currentScene.update(delta);
+            }
+
+            glfwSetWindowTitle(glfwWindow, currentScene.getName());
+
             glfwSwapBuffers(glfwWindow);
+
+            endTime = Time.getTime();
+            delta = endTime - beginTime;
+            beginTime = endTime;
         }
     }
 }
