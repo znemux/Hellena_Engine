@@ -1,4 +1,4 @@
-package org.example.Hell.util;
+package org.example.Hell.core.util;
 
 public class Time {
     public static float timeStarted = System.nanoTime();

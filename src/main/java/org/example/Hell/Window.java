@@ -1,11 +1,11 @@
 package org.example.Hell;
 
-import org.example.Hell.Input.KeyListener;
-import org.example.Hell.Input.MouseListener;
+import org.example.Hell.core.Input.KeyListener;
+import org.example.Hell.core.Input.MouseListener;
 import org.example.Hell.core.LevelEditorScene;
 import org.example.Hell.core.LevelScene;
 import org.example.Hell.core.Scene;
-import org.example.Hell.util.Time;
+import org.example.Hell.core.util.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;

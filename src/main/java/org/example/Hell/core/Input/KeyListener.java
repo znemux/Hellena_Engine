@@ -1,8 +1,6 @@
-package org.example.Hell.Input;
+package org.example.Hell.core.Input;
 
 import org.example.Hell.CustomExceptions.KeyCodeException;
-
-import java.util.HashMap;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
