@@ -31,10 +31,10 @@ public class Window {
         this.width = 1920/3;
         this.height = 1080/3;
         this.title = "2D engine";
-        r = 1;
-        g = 1;
-        b = 1;
-        a = 1;
+        r = 0;
+        g = 0;
+        b = 0;
+        a = 0;
     }
 
     public static void changeScene(int newScene) {
@@ -51,6 +51,7 @@ public class Window {
         }
 
         currentScene.init();
+        currentScene.start();
     }
 
     public static Window get() {
@@ -128,7 +129,7 @@ public class Window {
             // Poll events
             glfwPollEvents();
 
-            glClearColor(r, g,b, a);
+            glClearColor(r, g, b, a);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (delta >= 0) {

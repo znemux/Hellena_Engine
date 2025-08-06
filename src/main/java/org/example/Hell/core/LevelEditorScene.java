@@ -1,6 +1,7 @@
 package org.example.Hell.core;
 
 import org.example.Hell.core.Rendering.Shader;
+import org.example.Hell.core.Rendering.Texture;
 import org.example.Hell.core.util.Time;
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
@@ -8,8 +9,6 @@ import org.lwjgl.BufferUtils;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
@@ -18,10 +17,10 @@ public class LevelEditorScene extends Scene {
 
     private float[] vertexArray = {
         // position               // color
-        100.5f,0.5f,0.0f,          1.0f, 0.0f, 0.0f, 1.0f, // Bottom right   0
-        0.5f, 100.5f, 0.0f,        0.0f, 1.0f, 0.0f, 1.0f, // Top Left       1
-        100.5f, 100.5f, 0.0f,         0.0f, 0.0f, 1.0f, 1.0f, // Top Right      2
-        0.5f, 0.5f, 0.0f,        1.0f, 1.0f, 0.0f, 1.0f  // Bottom Left   3
+        100.5f,0.5f,0.0f,          1.0f, 0.0f, 0.0f, 1.0f,          1, 1,        // Bottom right   0
+        0.5f, 100.5f, 0.0f,        0.0f, 1.0f, 0.0f, 1.0f,          0, 0,        // Top Left       1
+        100.5f, 100.5f, 0.0f,         0.0f, 0.0f, 1.0f, 1.0f,       1, 0,        // Top Right      2
+        0.5f, 0.5f, 0.0f,        1.0f, 1.0f, 0.0f, 1.0f,            0, 1         // Bottom Left    3
     };
 
 
@@ -34,6 +33,7 @@ public class LevelEditorScene extends Scene {
     private int vaoID, vboID, eboID;
 
     private Shader defaultShader;
+    private Texture testTexture;
 
     public LevelEditorScene() {
 
@@ -42,6 +42,8 @@ public class LevelEditorScene extends Scene {
     @Override
     public void init() {
         setName("LevelEditorScene");
+
+        this.testTexture = new Texture("assets/textures/player.png");
 
         this.camera = new Camera(new Vector2f());
 
@@ -74,21 +76,29 @@ public class LevelEditorScene extends Scene {
         // Add vertex attribute pointers
         int positionSize = 3;
         int colorSize = 4;
-        int floatSizeBytes = 4;
-        int vertexSizeBytes = (positionSize + colorSize) * floatSizeBytes;
+        int uvSize = 2;
+        int vertexSizeBytes = (positionSize + colorSize + uvSize) * Float.BYTES;
         glVertexAttribPointer(0, positionSize, GL_FLOAT, false, vertexSizeBytes, 0);
         glEnableVertexAttribArray(0);
 
-        glVertexAttribPointer(1, colorSize, GL_FLOAT, false, vertexSizeBytes, positionSize * floatSizeBytes);
+        glVertexAttribPointer(1, colorSize, GL_FLOAT, false, vertexSizeBytes, positionSize * Float.BYTES);
         glEnableVertexAttribArray(1);
 
+        glVertexAttribPointer(2, uvSize, GL_FLOAT, false, vertexSizeBytes, (positionSize + colorSize) * Float.BYTES);
+        glEnableVertexAttribArray(2);
     }
 
     @Override
     public void update(float delta) {
-        camera.position.x -= delta * 50;
+        //camera.position.x -= delta * 50;
 
         defaultShader.use();
+
+        //upload texture to shader
+        defaultShader.uploadTexture("TEX_SAMPLER", 0);
+        glActiveTexture(GL_TEXTURE0);
+        testTexture.bind();
+
         defaultShader.uploadMat4f("uProjection", camera.getProjectionMatrix());
         defaultShader.uploadMat4f("uView", camera.getViewMatrix());
         defaultShader.uploadFloat("uTime", Time.getTime());
@@ -109,5 +119,6 @@ public class LevelEditorScene extends Scene {
         glBindVertexArray(0);
 
         defaultShader.detach();
+        testTexture.unbind();
     }
 }
