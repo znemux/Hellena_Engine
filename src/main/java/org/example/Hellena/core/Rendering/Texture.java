@@ -16,9 +16,6 @@ public class Texture {
     public Texture(String filepath) {
         this.filepath = filepath;
 
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
         // Generate Texture on GPU
         texID = glGenTextures();
         glBindTexture(GL_TEXTURE_2D, texID);

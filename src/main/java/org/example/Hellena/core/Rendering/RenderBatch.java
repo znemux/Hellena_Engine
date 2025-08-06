@@ -3,9 +3,9 @@ package org.example.Hellena.core.Rendering;
 import org.example.Hellena.Window;
 import org.example.Hellena.core.components.SpriteRenderer;
 import org.example.Hellena.core.util.AssetPool;
+import org.jetbrains.annotations.NotNull;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
-import org.lwjgl.system.CallbackI;
 
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 
-public class RenderBatch {
+public class RenderBatch implements Comparable<RenderBatch> {
     // Vertex
     // ======
     // Pos                Color                             texCoords         texID
@@ -43,8 +43,10 @@ public class RenderBatch {
     private int vaoID, vboID;
     private int maxBatchSize;
     private Shader shader;
+    private int zIndex;
 
-    public RenderBatch(int maxBatchSize) {
+    public RenderBatch(int maxBatchSize, int zIndex) {
+        this.zIndex = zIndex;
         this.shader = AssetPool.getShader("assets/shaders/default.glsl");
         shader.compileAndLink();
 
@@ -239,5 +241,14 @@ public class RenderBatch {
 
     public boolean hasRoom() {
         return this.hasRoom;
+    }
+
+    public int zIndex() {
+        return this.zIndex;
+    }
+
+    @Override
+    public int compareTo(@NotNull RenderBatch o) {
+        return Integer.compare(this.zIndex, o.zIndex);
     }
 }

@@ -2,6 +2,8 @@ package org.example.Hellena.core.Scenes;
 
 import org.example.Hellena.core.Camera;
 import org.example.Hellena.core.GameObject;
+import org.example.Hellena.core.Rendering.Texture;
+import org.example.Hellena.core.components.Sprite;
 import org.example.Hellena.core.components.SpriteRenderer;
 import org.example.Hellena.core.components.SpriteSheet;
 import org.example.Hellena.core.components.Transform;
@@ -27,11 +29,11 @@ public class LevelEditorScene extends Scene {
         setName("LevelEditorScene");
         this.camera = new Camera(new Vector2f());
 
-        obj = new GameObject("Obj 1", new Transform(new Vector2f(100,100), new Vector2f(256,256)));
-        obj.addComponent(new SpriteRenderer(sprites.getSprite(3)));
+        obj = new GameObject("Obj 1", new Transform(new Vector2f(100,100), new Vector2f(256,256)), 2);
+        obj.addComponent(new SpriteRenderer(sprites.getSprite(0)));
         this.addGameObjectToScene(obj);
 
-        GameObject obj2 = new GameObject("Obj 2", new Transform(new Vector2f(400,100), new Vector2f(256,256)));
+        GameObject obj2 = new GameObject("Obj 2", new Transform(new Vector2f(400,100), new Vector2f(256,256)), 2);
         obj2.addComponent(new SpriteRenderer(sprites.getSprite(15)));
         this.addGameObjectToScene(obj2);
     }
@@ -42,21 +44,8 @@ public class LevelEditorScene extends Scene {
         AssetPool.addSpriteSheet("assets/textures/spritesheet.png", new SpriteSheet(AssetPool.getTexture("assets/textures/spritesheet.png"), 16, 16, 26, 0));
     }
 
-
-    private int spritIndex = 1;
-    private float spriteFlipTime = 0.2f;
-    private float spriteFlipTimeLeft = 0.0f;
     @Override
     public void update(float delta) {
-        spriteFlipTimeLeft -= delta;
-        if (spriteFlipTimeLeft <= 0) {
-            spriteFlipTimeLeft = spriteFlipTime;
-            spritIndex++;
-            if (spritIndex > 3) {
-                spritIndex = 1;
-            }
-            obj.getComponent(SpriteRenderer.class).setSprite(sprites.getSprite(spritIndex));
-        }
 
         for (GameObject go : this.gameObjects) {
             go.update(delta);
