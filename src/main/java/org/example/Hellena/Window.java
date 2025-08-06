@@ -1,11 +1,11 @@
-package org.example.Hell;
+package org.example.Hellena;
 
-import org.example.Hell.core.Input.KeyListener;
-import org.example.Hell.core.Input.MouseListener;
-import org.example.Hell.core.LevelEditorScene;
-import org.example.Hell.core.LevelScene;
-import org.example.Hell.core.Scene;
-import org.example.Hell.core.util.Time;
+import org.example.Hellena.core.Input.KeyListener;
+import org.example.Hellena.core.Input.MouseListener;
+import org.example.Hellena.core.Scenes.LevelEditorScene;
+import org.example.Hellena.core.Scenes.LevelScene;
+import org.example.Hellena.core.Scenes.Scene;
+import org.example.Hellena.core.util.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -31,10 +31,10 @@ public class Window {
         this.width = 1920/3;
         this.height = 1080/3;
         this.title = "2D engine";
-        r = 0;
-        g = 0;
-        b = 0;
-        a = 0;
+        r = 1;
+        g = 1;
+        b = 1;
+        a = 1;
     }
 
     public static void changeScene(int newScene) {

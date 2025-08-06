@@ -1,4 +1,4 @@
-package org.example.Hell.core.Input;
+package org.example.Hellena.core.Input;
 
 import static org.lwjgl.glfw.GLFW.*;
 

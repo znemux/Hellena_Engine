@@ -1,4 +1,4 @@
-package org.example.Hell.CustomExceptions;
+package org.example.Hellena.CustomExceptions;
 
 public class KeyCodeException extends RuntimeException {
     public KeyCodeException(String message) {

@@ -1,6 +1,6 @@
-package org.example.Hell.core.Input;
+package org.example.Hellena.core.Input;
 
-import org.example.Hell.CustomExceptions.KeyCodeException;
+import org.example.Hellena.CustomExceptions.KeyCodeException;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;

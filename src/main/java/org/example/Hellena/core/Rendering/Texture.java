@@ -1,4 +1,4 @@
-package org.example.Hell.core.Rendering;
+package org.example.Hellena.core.Rendering;
 
 import org.lwjgl.BufferUtils;
 

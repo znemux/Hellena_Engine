@@ -1,6 +1,7 @@
-package org.example.Hell.core;
+package org.example.Hellena.core.Scenes;
 
-import org.example.Hell.core.components.GameObject;
+import org.example.Hellena.core.Camera;
+import org.example.Hellena.core.GameObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public abstract class Scene {
     private String name = "No Name";
     private boolean isRunning = false;
-    private List<GameObject> gameObjects = new ArrayList<>();
+    protected List<GameObject> gameObjects = new ArrayList<>();
 
     protected Camera camera;
 
@@ -24,6 +25,7 @@ public abstract class Scene {
         for (GameObject go : gameObjects) {
             go.start();
         }
+        isRunning = true;
     }
 
     public void addGameObjectToScene(GameObject go) {

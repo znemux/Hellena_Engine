@@ -1,4 +1,4 @@
-package org.example.Hell.core;
+package org.example.Hellena.core.Scenes;
 
 public class LevelScene extends Scene {
     public LevelScene() {

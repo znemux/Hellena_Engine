@@ -1,8 +1,12 @@
-package org.example.Hell.core;
+package org.example.Hellena.core.Scenes;
 
-import org.example.Hell.core.Rendering.Shader;
-import org.example.Hell.core.Rendering.Texture;
-import org.example.Hell.core.util.Time;
+import org.example.Hellena.core.Camera;
+import org.example.Hellena.core.GameObject;
+import org.example.Hellena.core.Rendering.Shader;
+import org.example.Hellena.core.Rendering.Texture;
+import org.example.Hellena.core.components.FontRenderer;
+import org.example.Hellena.core.components.SpriteRenderer;
+import org.example.Hellena.core.util.Time;
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
@@ -34,6 +38,9 @@ public class LevelEditorScene extends Scene {
 
     private Shader defaultShader;
     private Texture testTexture;
+
+    GameObject testObj;
+    private boolean firstTime = false;
 
     public LevelEditorScene() {
 
@@ -120,5 +127,9 @@ public class LevelEditorScene extends Scene {
 
         defaultShader.detach();
         testTexture.unbind();
+
+        for (GameObject go : this.gameObjects) {
+            go.update(delta);
+        }
     }
 }
