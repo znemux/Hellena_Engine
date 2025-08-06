@@ -5,6 +5,8 @@ import org.example.Hellena.core.components.SpriteRenderer;
 import org.example.Hellena.core.util.AssetPool;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+import org.lwjgl.system.CallbackI;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,9 +112,22 @@ public class RenderBatch {
     }
 
     public void render() {
-        // For now, we will rebuffer all data every frame
-        glBindBuffer(GL_ARRAY_BUFFER, vboID);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, vertices);
+        boolean rebufferdata = false;
+
+        for (int i = 0; i < this.numSprites; i++) {
+            SpriteRenderer spr = this.sprites[i];
+            if (spr.isDirty()) {
+                loadVertexProperties(i);
+                spr.setClean();
+                rebufferdata = true;
+            }
+        }
+
+        if (rebufferdata) {
+            // For now, we will rebuffer all data every time a sprite is dirty (Changed)
+            glBindBuffer(GL_ARRAY_BUFFER, vboID);
+            glBufferSubData(GL_ARRAY_BUFFER, 0, vertices);
+        }
 
         // Use Shader
         shader.use();
