@@ -5,7 +5,6 @@ import org.example.Hellena.core.components.SpriteRenderer;
 import org.example.Hellena.core.util.AssetPool;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
-import org.lwjgl.system.CallbackI;
 
 import java.util.ArrayList;
 import java.util.List;
