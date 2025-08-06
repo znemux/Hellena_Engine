@@ -1,6 +1,7 @@
 package org.example.Hellena.core;
 
 import org.example.Hellena.core.components.Component;
+import org.example.Hellena.core.components.Transform;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +9,18 @@ import java.util.List;
 public class GameObject {
     public String name;
     private List<Component> components;
+    public Transform transform;
 
     public GameObject(String name) {
         this.name = name;
         this.components = new ArrayList<>();
+        this.transform = new Transform();
+    }
+
+    public GameObject(String name, Transform transform) {
+        this.components = new ArrayList<>();
+        this.transform = transform;
+        this.name = name;
     }
 
     public <T extends Component> T getComponent(Class<T> componentClass) {
