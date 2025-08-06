@@ -4,6 +4,7 @@ import org.example.Hellena.core.Camera;
 import org.example.Hellena.core.GameObject;
 import org.example.Hellena.core.components.SpriteRenderer;
 import org.example.Hellena.core.components.Transform;
+import org.example.Hellena.core.util.AssetPool;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
@@ -36,6 +37,12 @@ public class LevelEditorScene extends Scene {
                 this.addGameObjectToScene(go);
             }
         }
+
+        loadResources();
+    }
+
+    private void loadResources() {
+        AssetPool.getShader("assets/shaders/default.glsl");
     }
 
     @Override

@@ -2,6 +2,7 @@ package org.example.Hellena.core.Rendering;
 
 import org.example.Hellena.Window;
 import org.example.Hellena.core.components.SpriteRenderer;
+import org.example.Hellena.core.util.AssetPool;
 import org.joml.Vector4f;
 import org.lwjgl.system.CallbackI;
 
@@ -33,7 +34,7 @@ public class RenderBatch {
     private Shader shader;
 
     public RenderBatch(int maxBatchSize) {
-        this.shader = new Shader("assets/shaders/default.glsl");
+        this.shader = AssetPool.getShader("assets/shaders/default.glsl");
         shader.compileAndLink();
 
         this.sprites = new SpriteRenderer[maxBatchSize];
