@@ -150,7 +150,7 @@ public class Window {
 
             glfwSetWindowTitle(glfwWindow, "Hellena - " + currentScene.getName());
 
-            imGuiLayer.update();
+            imGuiLayer.update(currentScene);
 
             glfwSwapBuffers(glfwWindow);
 

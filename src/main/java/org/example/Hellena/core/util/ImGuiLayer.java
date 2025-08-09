@@ -4,7 +4,7 @@ import imgui.*;
 import imgui.flag.ImGuiConfigFlags;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
-import org.example.Hellena.core.components.Component;
+import org.example.Hellena.core.Scenes.Scene;
 import org.jetbrains.annotations.Nullable;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -30,6 +30,7 @@ public class ImGuiLayer {
         io.setConfigFlags(ImGuiConfigFlags.NavEnableKeyboard);
         io.setConfigFlags(ImGuiConfigFlags.DockingEnable);
         io.setConfigFlags(ImGuiConfigFlags.ViewportsEnable);
+        io.setIniFilename("imgui.ini");
 
         // Set to dark mod
         ImGui.styleColorsDark();
@@ -44,7 +45,7 @@ public class ImGuiLayer {
         implGl3.init("#version 460");
     }
 
-    public void update() {
+    public void update(Scene currentScene) {
         if (glfwWindowShouldClose(glfwWindow)) {
             implGl3.shutdown();
             implGlfw.shutdown();
@@ -56,9 +57,10 @@ public class ImGuiLayer {
 
         ImGui.newFrame();
         ImGui.begin("My scene");
-        ImGui.setWindowSize(new ImVec2(300,300));
+        //ImGui.setWindowSize(new ImVec2(300,300));
 
         //Window goes here
+        currentScene.sceneImGui();
 
         ImGui.end();
         ImGui.render();

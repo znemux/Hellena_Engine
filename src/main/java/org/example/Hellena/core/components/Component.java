@@ -9,5 +9,11 @@ public abstract class Component {
 
     }
 
-    public abstract void update(float delta);
+    public void update(float delta) {
+
+    }
+
+    public void imgui() {
+
+    }
 }

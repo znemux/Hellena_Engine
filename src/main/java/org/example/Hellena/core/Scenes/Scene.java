@@ -1,5 +1,6 @@
 package org.example.Hellena.core.Scenes;
 
+import imgui.ImGui;
 import org.example.Hellena.core.Camera;
 import org.example.Hellena.core.GameObject;
 import org.example.Hellena.core.Rendering.Renderer;
@@ -12,6 +13,7 @@ public abstract class Scene {
     protected Renderer renderer = new Renderer();
     private boolean isRunning = false;
     protected List<GameObject> gameObjects = new ArrayList<>();
+    protected GameObject activeGameObject = null;
 
     protected Camera camera;
 
@@ -53,5 +55,19 @@ public abstract class Scene {
 
     public Camera getCamera() {
         return this.camera;
+    }
+
+    public void sceneImGui() {
+        if (activeGameObject != null) {
+            ImGui.begin("Inspector");
+            activeGameObject.imgui();
+            ImGui.end();
+        }
+
+        imgui();
+    }
+
+    public void imgui() {
+
     }
 }

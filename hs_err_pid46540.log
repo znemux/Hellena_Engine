@@ -1,0 +1,2330 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffe39b045eb, pid=46540, tid=31944
+#
+# JRE version: OpenJDK Runtime Environment Temurin-21.0.7+6 (21.0.7+6) (build 21.0.7+6-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-21.0.7+6 (21.0.7+6-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [glfw.dll+0x45eb]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant -ea org.example.Main
+
+Host: 12th Gen Intel(R) Core(TM) i7-12700, 20 cores, 31G,  Windows 11 , 64 bit Build 26100 (10.0.26100.4484)
+Time: Fri Aug  8 21:50:56 2025 Pacific Daylight Time elapsed time: 9.920515 seconds (0d 0h 0m 9s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001e69b1f73f0):  JavaThread "main"             [_thread_in_native, id=31944, stack(0x000000c94e600000,0x000000c94e700000) (1024K)]
+
+Stack: [0x000000c94e600000,0x000000c94e700000],  sp=0x000000c94e6fed90,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [glfw.dll+0x45eb]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 1132  org.lwjgl.system.JNI.invokePV(JJ)V (0 bytes) @ 0x000001e6ab4c869c [0x000001e6ab4c8640+0x000000000000005c]
+j  org.lwjgl.glfw.GLFW.glfwDestroyCursor(J)V+17
+j  imgui.glfw.ImGuiImplGlfw.shutdown()V+46
+J 1343 c1 org.example.Hellena.core.util.ImGuiLayer.update(Lorg/example/Hellena/core/Scenes/Scene;)V (111 bytes) @ 0x000001e6a3ad0fe4 [0x000001e6a3ad0b40+0x00000000000004a4]
+j  org.example.Hellena.Window.loop()V+86
+j  org.example.Hellena.Window.run()V+19
+j  org.example.Main.main([Ljava/lang/String;)V+5
+v  ~StubRoutines::call_stub 0x000001e6aad2100d
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x0000000000000458
+
+
+Registers:
+RAX=0x0000000000000000, RBX=0x000001e7024c27c8, RCX=0xc4180ff267dd0000, RDX=0x000000000000000b
+RSP=0x000000c94e6fed90, RBP=0x000000c94e6fee30, RSI=0x000001e709eb6f40, RDI=0x0000000000000400
+R8 =0x0000000000000780, R9 =0x0000000000000000, R10=0x0000000000000000, R11=0x0000000000000246
+R12=0x0000000000000000, R13=0x000000c94e6fee40, R14=0x000000c94e6fee20, R15=0x000001e69b1f73f0
+RIP=0x00007ffe39b045eb, EFLAGS=0x0000000000010206
+
+XMM[0]=0x000003f100000780 0x0000000000000000
+XMM[1]=0x0000000000000000 0x0000000000000000
+XMM[2]=0x0000000000000000 0x0000000000000000
+XMM[3]=0x0000000000000000 0x0000000000000000
+XMM[4]=0x0000000000000000 0x0000000000000000
+XMM[5]=0x0000000000000000 0x0000000000000000
+XMM[6]=0x0000000000000000 0x0000000000000000
+XMM[7]=0x0000000000000000 0x0000000000000000
+XMM[8]=0x0000000000000000 0x0000000000000000
+XMM[9]=0x0000000000000000 0x0000000041a00000
+XMM[10]=0x0000000000000000 0x0000000000000000
+XMM[11]=0x0000000000000000 0x0000000000000000
+XMM[12]=0x0000000000000000 0x0000000000000000
+XMM[13]=0x0000000000000000 0x0000000000000000
+XMM[14]=0x0000000000000000 0x0000000000000000
+XMM[15]=0x0000000000000000 0x0000000000000000
+  MXCSR=0x00001fa2
+
+
+Register to memory mapping:
+
+RAX=0x0 is null
+RBX={method} {0x000001e7024c27d0} 'invokePV' '(JJ)V' in 'org/lwjgl/system/JNI'
+RCX=0xc4180ff267dd0000 is an unknown value
+RDX=0x000000000000000b is an unknown value
+RSP=0x000000c94e6fed90 is pointing into the stack for thread: 0x000001e69b1f73f0
+RBP=0x000000c94e6fee30 is pointing into the stack for thread: 0x000001e69b1f73f0
+RSI=0x000001e709eb6f40 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+RDI=0x0000000000000400 is an unknown value
+R8 =0x0000000000000780 is an unknown value
+R9 =0x0 is null
+R10=0x0 is null
+R11=0x0000000000000246 is an unknown value
+R12=0x0 is null
+R13=0x000000c94e6fee40 is pointing into the stack for thread: 0x000001e69b1f73f0
+R14=0x000000c94e6fee20 is pointing into the stack for thread: 0x000001e69b1f73f0
+R15=0x000001e69b1f73f0 is a thread
+
+Top of Stack: (sp=0x000000c94e6fed90)
+0x000000c94e6fed90:   000000c94e6fede0 000001e70296a248
+0x000000c94e6feda0:   0000000000000000 000001e70240d9e4
+0x000000c94e6fedb0:   000001e6aad28860 000001e6aad28860
+0x000000c94e6fedc0:   0000000000000000 000001e6ab4c8737
+0x000000c94e6fedd0:   0000000000000000 0000000000000000
+0x000000c94e6fede0:   000001e70249bcd0 000001e69b1f73f0
+0x000000c94e6fedf0:   000001e69b1f73f0 00007ffdc53651b1
+0x000000c94e6fee00:   000000c94e6fee00 000001e7025c3315
+0x000000c94e6fee10:   000000c94e6feed0 000001e6aad28860
+0x000000c94e6fee20:   00000006237e2fd0 000001e6aad3773c
+0x000000c94e6fee30:   000000c94e6feea8 000001e6aad28860
+0x000000c94e6fee40:   00007ffe39b045a0 0000000000000000
+0x000000c94e6fee50:   000001e709eb6f40 0000000000000000
+0x000000c94e6fee60:   000000c94e6fee60 000001e70249bca1
+0x000000c94e6fee70:   0000000000000005 000001e7024a31a8
+0x000000c94e6fee80:   0000000000000000 00000006237599b8
+0x000000c94e6fee90:   000001e70249bcd0 000000c94e6fee40
+0x000000c94e6feea0:   000000c94e6feec8 000000c94e6fef20
+0x000000c94e6feeb0:   000001e6aad28860 00007ffe39b045a0
+0x000000c94e6feec0:   0000000000000000 000001e709eb6f40
+0x000000c94e6feed0:   0000000000000000 000000c94e6feed8
+0x000000c94e6feee0:   000001e7025c382e 0000000000000004
+0x000000c94e6feef0:   000001e7025d2138 000001e70295dbc8
+0x000000c94e6fef00:   00000006231dc770 000001e7025c3880
+0x000000c94e6fef10:   000000c94e6feec8 000000c94e6fef50
+0x000000c94e6fef20:   000000c94e6ff070 000001e6a3ad0fe4
+0x000000c94e6fef30:   0000000000000000 00000006233ab670
+0x000000c94e6fef40:   000000062322c8b0 000001e6a3ad0fe4
+0x000000c94e6fef50:   000000c94e6ff070 000001e6a3acde9c
+0x000000c94e6fef60:   0000000100000001 0000000622cdd1e0
+0x000000c94e6fef70:   000000c94e6ff070 000001e6a3ab166c
+0x000000c94e6fef80:   000000c94e6ff070 000001e6a3acb7cc 
+
+Instructions: (pc=0x00007ffe39b045eb)
+0x00007ffe39b044eb:   81 39 07 00 48 85 ff 75 57 eb 78 31 f6 b9 01 00
+0x00007ffe39b044fb:   01 00 31 d2 e8 8c da ff ff eb 13 48 8d 15 97 70
+0x00007ffe39b0450b:   06 00 b9 04 00 01 00 e8 79 da ff ff 31 f6 48 89
+0x00007ffe39b0451b:   f0 48 83 c4 28 5b 5f 5e 41 5e c3 66 2e 0f 1f 84
+0x00007ffe39b0452b:   00 00 00 00 00 48 c7 47 58 00 00 00 00 48 89 f9
+0x00007ffe39b0453b:   31 d2 ff 15 05 32 07 00 48 8b 3f 48 85 ff 74 23
+0x00007ffe39b0454b:   48 39 77 58 75 f2 83 3d 70 31 07 00 00 75 d6 b9
+0x00007ffe39b0455b:   01 00 01 00 31 d2 e8 2a da ff ff 48 8b 3f 48 85
+0x00007ffe39b0456b:   ff 75 dd 48 89 f1 ff 15 c9 31 07 00 48 8d 0d ea
+0x00007ffe39b0457b:   38 07 00 66 90 48 89 c8 48 8b 09 48 39 f1 75 f5
+0x00007ffe39b0458b:   48 8b 0e 48 89 08 48 89 f1 e8 a7 dd ff ff e9 79
+0x00007ffe39b0459b:   ff ff ff cc cc 56 57 48 83 ec 28 83 3d 1b 31 07
+0x00007ffe39b045ab:   00 00 0f 84 8c 00 00 00 48 89 ce 48 85 c9 0f 84
+0x00007ffe39b045bb:   8c 00 00 00 48 8b 3d aa 38 07 00 48 85 ff 75 20
+0x00007ffe39b045cb:   eb 41 0f 1f 00 48 c7 47 58 00 00 00 00 48 89 f9
+0x00007ffe39b045db:   31 d2 ff 15 65 31 07 00 48 8b 3f 48 85 ff 74 23
+0x00007ffe39b045eb:   48 39 77 58 75 f2 83 3d d0 30 07 00 00 75 d6 b9
+0x00007ffe39b045fb:   01 00 01 00 31 d2 e8 8a d9 ff ff 48 8b 3f 48 85
+0x00007ffe39b0460b:   ff 75 dd 48 89 f1 ff 15 29 31 07 00 48 8d 0d 4a
+0x00007ffe39b0461b:   38 07 00 66 90 48 89 c8 48 8b 09 48 39 f1 75 f5
+0x00007ffe39b0462b:   48 8b 0e 48 89 08 48 89 f1 48 83 c4 28 5f 5e e9
+0x00007ffe39b0463b:   01 dd ff ff b9 01 00 01 00 31 d2 e8 45 d9 ff ff
+0x00007ffe39b0464b:   90 48 83 c4 28 5f 5e c3 cc cc cc cc cc cc cc cc
+0x00007ffe39b0465b:   cc cc cc cc cc 56 57 48 83 ec 28 83 3d 5b 30 07
+0x00007ffe39b0466b:   00 00 74 73 89 cf 8d 87 f5 9f fc ff 83 f8 f5 77
+0x00007ffe39b0467b:   19 48 8d 15 a5 89 06 00 b9 03 00 01 00 41 89 f8
+0x00007ffe39b0468b:   e8 00 d9 ff ff e9 d4 00 00 00 b9 01 00 00 00 ba
+0x00007ffe39b0469b:   10 00 00 00 e8 4c d7 ff ff 48 89 c6 48 8b 05 ba
+0x00007ffe39b046ab:   37 07 00 48 89 06 48 89 35 b0 37 07 00 48 89 f1
+0x00007ffe39b046bb:   89 fa ff 15 75 30 07 00 85 c0 0f 85 a0 00 00 00
+0x00007ffe39b046cb:   83 3d f6 2f 07 00 00 74 0e 48 8b 3d 95 37 07 00
+0x00007ffe39b046db:   48 85 ff 75 3b eb 5c 31 f6 b9 01 00 01 00 31 d2 
+
+
+Stack slot to memory mapping:
+
+stack at sp + 0 slots: 0x000000c94e6fede0 is pointing into the stack for thread: 0x000001e69b1f73f0
+stack at sp + 1 slots: 0x000001e70296a248 is pointing into metadata
+stack at sp + 2 slots: 0x0 is null
+stack at sp + 3 slots: 0x000001e70240d9e4 is pointing into metadata
+stack at sp + 4 slots: 0x000001e6aad28860 is at code_begin+1184 in an Interpreter codelet
+return entry points  [0x000001e6aad283c0, 0x000001e6aad28f60]  2976 bytes
+stack at sp + 5 slots: 0x000001e6aad28860 is at code_begin+1184 in an Interpreter codelet
+return entry points  [0x000001e6aad283c0, 0x000001e6aad28f60]  2976 bytes
+stack at sp + 6 slots: 0x0 is null
+stack at sp + 7 slots: 0x000001e6ab4c8737 is at entry_point+247 in (nmethod*)0x000001e6ab4c8490
+Compiled method (n/a) 9955 1132     n 0       org.lwjgl.system.JNI::invokePV (native)
+ total in heap  [0x000001e6ab4c8490,0x000001e6ab4c8868] = 984
+ relocation     [0x000001e6ab4c85f0,0x000001e6ab4c8628] = 56
+ main code      [0x000001e6ab4c8640,0x000001e6ab4c885b] = 539
+ stub code      [0x000001e6ab4c885b,0x000001e6ab4c8860] = 5
+ oops           [0x000001e6ab4c8860,0x000001e6ab4c8868] = 8
+
+
+Compiled method (n/a) 9956 1132     n 0       org.lwjgl.system.JNI::invokePV (native)
+ total in heap  [0x000001e6ab4c8490,0x000001e6ab4c8868] = 984
+ relocation     [0x000001e6ab4c85f0,0x000001e6ab4c8628] = 56
+ main code      [0x000001e6ab4c8640,0x000001e6ab4c885b] = 539
+ stub code      [0x000001e6ab4c885b,0x000001e6ab4c8860] = 5
+ oops           [0x000001e6ab4c8860,0x000001e6ab4c8868] = 8
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000001e7024c27d0} 'invokePV' '(JJ)V' in 'org/lwjgl/system/JNI'
+  # parm0:    rdx:rdx   = long
+  # parm1:    r8:r8     = long
+  #           [sp+0x70]  (sp of caller)
+  0x000001e6ab4c8640: 448b 5208 | 49bb 0000 | 00c1 e601 | 0000 4d03 | d349 3bc2 | 0f84 0600 
+
+  0x000001e6ab4c8658: ;   {runtime_call ic_miss_stub}
+  0x000001e6ab4c8658: 0000 e921 | 618a ff90 
+[Verified Entry Point]
+  0x000001e6ab4c8660: 8984 2400 | 80ff ff55 | 488b ec48 | 83ec 6090 | 4181 7f20 | 0100 0000 
+
+  0x000001e6ab4c8678: ;   {runtime_call StubRoutines (final stubs)}
+  0x000001e6ab4c8678: 7405 e8e1 | c688 ff4d | 8bc8 4c8b 
+
+  0x000001e6ab4c8684: ;   {oop(a 'java/lang/Class'{0x00000006237e2fd0} = 'org/lwjgl/system/JNI')}
+  0x000001e6ab4c8684: c249 bed0 | 2f7e 2306 | 0000 004c | 8974 2450 | 4c8d 7424 | 5049 8bd6 
+
+  0x000001e6ab4c869c: ;   {internal_word}
+  0x000001e6ab4c869c: c5f8 7749 | ba9c 864c | abe6 0100 | 004d 8997 | a003 0000 | 4989 a798 
+
+  0x000001e6ab4c86b4: ;   {external_word}
+  0x000001e6ab4c86b4: 0300 0049 | ba3d 5bc2 | c5fd 7f00 | 0041 803a | 000f 844e | 0000 0052 | 4150 4151 
+
+  0x000001e6ab4c86d0: ;   {metadata({method} {0x000001e7024c27d0} 'invokePV' '(JJ)V' in 'org/lwjgl/system/JNI')}
+  0x000001e6ab4c86d0: 48ba c827 | 4c02 e701 | 0000 498b | cf48 83ec | 2040 f6c4 | 0f0f 8419 | 0000 0048 
+
+  0x000001e6ab4c86ec: ;   {runtime_call}
+  0x000001e6ab4c86ec: 83ec 0848 | b850 4b6c | c5fd 7f00 | 00ff d048 | 83c4 08e9 | 0c00 0000 
+
+  0x000001e6ab4c8704: ;   {runtime_call}
+  0x000001e6ab4c8704: 48b8 504b | 6cc5 fd7f | 0000 ffd0 | 4883 c420 | 4159 4158 | 5a49 8d8f | b803 0000 | 41c7 8744 
+  0x000001e6ab4c8724: 0400 0004 
+
+  0x000001e6ab4c8728: ;   {runtime_call}
+  0x000001e6ab4c8728: 0000 0048 | b820 1370 | 3afe 7f00 | 00ff d0c5 | f877 41c7 | 8744 0400 | 0005 0000 | 00f0 8344 
+  0x000001e6ab4c8748: 24c0 0049 | 3baf 4804 | 0000 0f87 | 0e00 0000 | 4183 bf40 | 0400 0000 | 0f84 2300 | 0000 c5f8 
+  0x000001e6ab4c8768: 7749 8bcf | 4c8b e448 | 83ec 2048 
+
+  0x000001e6ab4c8774: ;   {runtime_call}
+  0x000001e6ab4c8774: 83e4 f048 | b800 d137 | c5fd 7f00 | 00ff d049 | 8be4 4d33 | e441 c787 | 4404 0000 | 0800 0000 
+  0x000001e6ab4c8794: 4183 bfc0 | 0400 0002 | 0f84 9400 
+
+  0x000001e6ab4c87a0: ;   {external_word}
+  0x000001e6ab4c87a0: 0000 49ba | 3d5b c2c5 | fd7f 0000 | 4180 3a00 | 0f84 4400 
+
+  0x000001e6ab4c87b4: ;   {metadata({method} {0x000001e7024c27d0} 'invokePV' '(JJ)V' in 'org/lwjgl/system/JNI')}
+  0x000001e6ab4c87b4: 0000 48ba | c827 4c02 | e701 0000 | 498b cf48 | 83ec 2040 | f6c4 0f0f | 8419 0000 | 0048 83ec 
+  0x000001e6ab4c87d4: ;   {runtime_call}
+  0x000001e6ab4c87d4: 0848 b850 | 4b6c c5fd | 7f00 00ff | d048 83c4 | 08e9 0c00 
+
+  0x000001e6ab4c87e8: ;   {runtime_call}
+  0x000001e6ab4c87e8: 0000 48b8 | 504b 6cc5 | fd7f 0000 | ffd0 4883 | c420 49c7 | 8798 0300 | 0000 0000 | 0049 c787 
+  0x000001e6ab4c8808: a003 0000 | 0000 0000 | c5f8 7749 | 8b8f 2804 | 0000 c781 | 0001 0000 | 0000 0000 | c949 837f 
+  0x000001e6ab4c8828: 0800 0f85 | 0100 0000 
+
+  0x000001e6ab4c8830: ;   {runtime_call StubRoutines (initial stubs)}
+  0x000001e6ab4c8830: c3e9 ca86 | 85ff c5f8 | 774c 8be4 | 4883 ec20 | 4883 e4f0 
+
+  0x000001e6ab4c8844: ;   {runtime_call}
+  0x000001e6ab4c8844: 48b8 3083 | 6cc5 fd7f | 0000 ffd0 | 498b e44d | 33e4 e947 | ffff fff4 | f4f4 f4f4 
+[/MachCode]
+
+
+Compiled method (c1) 9962 1343       3       org.example.Hellena.core.util.ImGuiLayer::update (111 bytes)
+ total in heap  [0x000001e6a3ad0690,0x000001e6a3ad2ab8] = 9256
+ relocation     [0x000001e6a3ad07f0,0x000001e6a3ad0b18] = 808
+ constants      [0x000001e6a3ad0b20,0x000001e6a3ad0b40] = 32
+ main code      [0x000001e6a3ad0b40,0x000001e6a3ad1f58] = 5144
+ stub code      [0x000001e6a3ad1f58,0x000001e6a3ad2100] = 424
+ oops           [0x000001e6a3ad2100,0x000001e6a3ad2138] = 56
+ metadata       [0x000001e6a3ad2138,0x000001e6a3ad2240] = 264
+ scopes data    [0x000001e6a3ad2240,0x000001e6a3ad25b0] = 880
+ scopes pcs     [0x000001e6a3ad25b0,0x000001e6a3ad2a40] = 1168
+ dependencies   [0x000001e6a3ad2a40,0x000001e6a3ad2a58] = 24
+ nul chk table  [0x000001e6a3ad2a58,0x000001e6a3ad2ab8] = 96
+
+
+[Constant Pool]
+             Address          hex4                    hex8      
+  0x000001e6a3ad0b20:   0x43960000      0x4396000043960000      
+  0x000001e6a3ad0b24:   0x43960000                              
+  0x000001e6a3ad0b28:   0xf4f4f4f4      0xf4f4f4f4f4f4f4f4      
+  0x000001e6a3ad0b2c:   0xf4f4f4f4                              
+  0x000001e6a3ad0b30:   0xf4f4f4f4      0xf4f4f4f4f4f4f4f4      
+  0x000001e6a3ad0b34:   0xf4f4f4f4                              
+  0x000001e6a3ad0b38:   0xf4f4f4f4      0xf4f4f4f4f4f4f4f4      
+  0x000001e6a3ad0b3c:   0xf4f4f4f4                              
+
+[MachCode]
+[Entry Point]
+  # {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer'
+  # this:     rdx:rdx   = 'org/example/Hellena/core/util/ImGuiLayer'
+  # parm0:    r8:r8     = 'org/example/Hellena/core/Scenes/Scene'
+  #           [sp+0xc0]  (sp of caller)
+  0x000001e6a3ad0b40: ;   {no_reloc}
+  0x000001e6a3ad0b40: 448b 5208 | 49bb 0000 | 00c1 e601 | 0000 4d03 | d34c 3bd0 
+
+  0x000001e6a3ad0b54: ;   {runtime_call ic_miss_stub}
+  0x000001e6a3ad0b54: 0f85 26dc | 2907 660f | 1f44 0000 
+[Verified Entry Point]
+  0x000001e6a3ad0b60: 8984 2400 | 80ff ff55 | 4881 ecb0 | 0000 0090 | 4181 7f20 | 0100 0000 
+
+  0x000001e6a3ad0b78: ;   {runtime_call StubRoutines (final stubs)}
+  0x000001e6a3ad0b78: 7405 e8e1 | 4128 0748 | 8994 2480 | 0000 004c | 8984 2488 
+
+  0x000001e6a3ad0b8c: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad0b8c: 0000 0048 | be98 ca95 | 02e7 0100 | 008b becc | 0000 0083 | c702 89be | cc00 0000 | 81e7 fe07 
+  0x000001e6a3ad0bac: 0000 85ff | 0f84 fc0e | 0000 488b 
+
+  0x000001e6a3ad0bb8: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad0bb8: 7210 48bf | 98ca 9502 | e701 0000 | 4883 8710 | 0100 0001 
+
+  0x000001e6a3ad0bcc: ;   {static_call}
+  0x000001e6a3ad0bcc: 488b d6e8 
+
+  0x000001e6a3ad0bd0: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokestatic glfwWindowShouldClose {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@4 (line 49)
+  0x000001e6a3ad0bd0: 8caa feff 
+
+  0x000001e6a3ad0bd4: ;   {other}
+  0x000001e6a3ad0bd4: 0f1f 8400 | 4405 0000 
+
+  0x000001e6a3ad0bdc: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad0bdc: 85c0 48be | 98ca 9502 | e701 0000 | 48c7 c720 | 0100 0074 | 0748 c7c7 | 3001 0000 | 488b 1c3e 
+  0x000001e6a3ad0bfc: 488d 5b01 | 4889 1c3e | 0f84 3a04 | 0000 488b | 9424 8000 | 0000 8b72 | 1c48 c1e6 | 0348 3b06 
+  0x000001e6a3ad0c1c: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad0c1c: 488b fe48 | bb98 ca95 | 02e7 0100 
+
+  0x000001e6a3ad0c28: ;   {metadata('imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0c28: 0049 ba38 | 2a02 c2e6 | 0100 004c | 8993 5001 | 0000 4883 | 8358 0100 
+
+  0x000001e6a3ad0c40: ;   {metadata(method data for {method} {0x000001e7025d9db8} 'shutdown' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0c40: 0001 48bf | 78ce 9502 | e701 0000 | 8b9f cc00 | 0000 83c3 | 0289 9fcc | 0000 0081 | e3fe ff1f 
+  0x000001e6a3ad0c60: 0085 db0f | 846f 0e00 
+
+  0x000001e6a3ad0c68: ;   {metadata(method data for {method} {0x000001e7025d9db8} 'shutdown' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0c68: 0048 bf78 | ce95 02e7 | 0100 0048 | 8387 1001 
+
+  0x000001e6a3ad0c78: ;   {metadata(method data for {method} {0x000001e702614d88} 'getIO' '()Limgui/ImGuiIO;' in 'imgui/ImGui')}
+  0x000001e6a3ad0c78: 0000 0148 | bf78 f694 | 02e7 0100 | 008b 9fcc | 0000 0083 | c302 899f | cc00 0000 | 81e3 feff 
+  0x000001e6a3ad0c98: 1f00 85db | 0f84 570e 
+
+  0x000001e6a3ad0ca0: ;   {metadata(method data for {method} {0x000001e702614d88} 'getIO' '()Limgui/ImGuiIO;' in 'imgui/ImGui')}
+  0x000001e6a3ad0ca0: 0000 48bf | 78f6 9402 | e701 0000 | 4883 8710 | 0100 0001 | 4889 b424 | 9000 0000 
+
+  0x000001e6a3ad0cbc: ;   {static_call}
+  0x000001e6a3ad0cbc: 6666 90e8 
+
+  0x000001e6a3ad0cc0: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop }
+                      ;*invokestatic nGetIO {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::getIO@3 (line 222)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@0 (line 326)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad0cc0: 9ced 9e07 
+
+  0x000001e6a3ad0cc4: ;   {other}
+  0x000001e6a3ad0cc4: 0f1f 8400 | 3406 0001 
+
+  0x000001e6a3ad0ccc: ;   {oop(a 'imgui/ImGuiIO'{0x00000006233ab670})}
+  0x000001e6a3ad0ccc: 48be 70b6 | 3a23 0600 | 0000 4889 | 4610 488b | bc24 9000 
+
+  0x000001e6a3ad0ce0: ;   {metadata(method data for {method} {0x000001e7025d9db8} 'shutdown' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0ce0: 0000 48bb | 78ce 9502 | e701 0000 
+
+  0x000001e6a3ad0cec: ;   {metadata('imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0cec: 49ba 382a | 02c2 e601 | 0000 4c89 | 9330 0100 | 0048 8383 | 3801 0000 
+
+  0x000001e6a3ad0d04: ;   {metadata(method data for {method} {0x000001e7025da7e8} 'shutdownPlatformInterface' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0d04: 0148 bfb8 | d095 02e7 | 0100 008b | 9fcc 0000 | 0083 c302 | 899f cc00 | 0000 81e3 | feff 1f00 
+  0x000001e6a3ad0d24: 85db 0f84 | f30d 0000 
+
+  0x000001e6a3ad0d2c: ;   {metadata(method data for {method} {0x000001e7025da7e8} 'shutdownPlatformInterface' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0d2c: 48bf b8d0 | 9502 e701 | 0000 4883 | 8710 0100 
+
+  0x000001e6a3ad0d3c: ;   {metadata(method data for {method} {0x000001e70266cbc0} 'destroyPlatformWindows' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad0d3c: 0001 48bf | 18d2 9502 | e701 0000 | 8b9f cc00 | 0000 83c3 | 0289 9fcc | 0000 0081 | e3fe ff1f 
+  0x000001e6a3ad0d5c: 0085 db0f | 84db 0d00 
+
+  0x000001e6a3ad0d64: ;   {metadata(method data for {method} {0x000001e70266cbc0} 'destroyPlatformWindows' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad0d64: 0048 bf18 | d295 02e7 | 0100 0048 | 8387 1001 | 0000 0148 | 89b4 2498 
+
+  0x000001e6a3ad0d7c: ;   {static_call}
+  0x000001e6a3ad0d7c: 0000 00e8 
+
+  0x000001e6a3ad0d80: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*invokestatic nDestroyPlatformWindows {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::destroyPlatformWindows@0 (line 13550)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdownPlatformInterface@0 (line 765)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@5 (line 328)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad0d80: 3713 0000 
+
+  0x000001e6a3ad0d84: ;   {other}
+  0x000001e6a3ad0d84: 0f1f 8400 | f406 0002 | 488b b424 | 9000 0000 
+
+  0x000001e6a3ad0d94: ;   {metadata(method data for {method} {0x000001e7025d9db8} 'shutdown' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0d94: 48ba 78ce | 9502 e701 
+
+  0x000001e6a3ad0d9c: ;   {metadata('imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0d9c: 0000 49ba | 382a 02c2 | e601 0000 | 4c89 9268 | 0100 0048 | 8382 7001 | 0000 0148 | 8b94 2490 
+  0x000001e6a3ad0dbc: ;   {optimized virtual_call}
+  0x000001e6a3ad0dbc: 0000 00e8 
+
+  0x000001e6a3ad0dc0: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*invokevirtual destroyDeviceObjects {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@9 (line 329)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad0dc0: 9911 0000 
+
+  0x000001e6a3ad0dc4: ;   {other}
+  0x000001e6a3ad0dc4: 0f1f 8400 | 3407 0003 | 488b b424 | 9800 0000 
+
+  0x000001e6a3ad0dd4: ;   {metadata(method data for {method} {0x000001e7025d9db8} 'shutdown' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0dd4: 49b8 78ce | 9502 e701 | 0000 4983 | 8090 0100 
+
+  0x000001e6a3ad0de4: ;   {metadata(method data for {method} {0x000001e7025eae18} 'setBackendRendererName' '(Ljava/lang/String;)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0de4: 0001 49b8 | 98d5 9502 | e701 0000 | 418b 90cc | 0000 0083 | c202 4189 | 90cc 0000 | 0081 e2fe 
+  0x000001e6a3ad0e04: ff1f 0085 | d20f 8452 | 0d00 0048 | 8bb4 2498 
+
+  0x000001e6a3ad0e14: ;   {metadata(method data for {method} {0x000001e7025eae18} 'setBackendRendererName' '(Ljava/lang/String;)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0e14: 0000 0049 | b898 d595 | 02e7 0100 | 0049 8380 | 1001 0000 
+
+  0x000001e6a3ad0e28: ;   {oop(nullptr)}
+  0x000001e6a3ad0e28: 0149 b800 | 0000 0000 | 0000 0048 | 8b94 2498 | 0000 000f 
+
+  0x000001e6a3ad0e3c: ;   {optimized virtual_call}
+  0x000001e6a3ad0e3c: 1f40 00e8 
+
+  0x000001e6a3ad0e40: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*invokespecial nSetBackendRendererName {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGuiIO::setBackendRendererName@2 (line 1060)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@14 (line 331)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad0e40: f011 0000 
+
+  0x000001e6a3ad0e44: ;   {other}
+  0x000001e6a3ad0e44: 0f1f 8400 | b407 0004 | 488b b424 | 9800 0000 
+
+  0x000001e6a3ad0e54: ;   {metadata(method data for {method} {0x000001e7025d9db8} 'shutdown' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad0e54: 48ba 78ce | 9502 e701 | 0000 4883 | 82c8 0100 
+
+  0x000001e6a3ad0e64: ;   {metadata(method data for {method} {0x000001e7025e40e0} 'removeBackendFlags' '(I)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0e64: 0001 48ba | e0d6 9502 | e701 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001e6a3ad0e84: 0085 f60f | 84f5 0c00 | 0048 8bb4 | 2498 0000 
+
+  0x000001e6a3ad0e94: ;   {metadata(method data for {method} {0x000001e7025e40e0} 'removeBackendFlags' '(I)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0e94: 0048 bae0 | d695 02e7 | 0100 0048 | 8382 1001 
+
+  0x000001e6a3ad0ea4: ;   {metadata(method data for {method} {0x000001e7025e3ea8} 'getBackendFlags' '()I' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0ea4: 0000 0148 | ba18 b495 | 02e7 0100 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x000001e6a3ad0ec4: 1f00 85f6 | 0f84 d50c | 0000 488b | b424 9800 
+
+  0x000001e6a3ad0ed4: ;   {metadata(method data for {method} {0x000001e7025e3ea8} 'getBackendFlags' '()I' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0ed4: 0000 48ba | 18b4 9502 | e701 0000 | 4883 8210 | 0100 0001 | 488b 9424 | 9800 0000 | 0f1f 8000 
+  0x000001e6a3ad0ef4: ;   {optimized virtual_call}
+  0x000001e6a3ad0ef4: 0000 00e8 
+
+  0x000001e6a3ad0ef8: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*invokespecial nGetBackendFlags {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGuiIO::getBackendFlags@1 (line 73)
+                      ; - imgui.ImGuiIO::removeBackendFlags@2 (line 94)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@21 (line 332)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad0ef8: 4412 a007 
+
+  0x000001e6a3ad0efc: ;   {other}
+  0x000001e6a3ad0efc: 0f1f 8400 | 6c08 0005 | 488b b424 | 9800 0000 
+
+  0x000001e6a3ad0f0c: ;   {metadata(method data for {method} {0x000001e7025e40e0} 'removeBackendFlags' '(I)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0f0c: 49b8 e0d6 | 9502 e701 | 0000 4983 | 8048 0100 | 0001 25f7 
+
+  0x000001e6a3ad0f20: ;   {metadata(method data for {method} {0x000001e7025e3f60} 'setBackendFlags' '(I)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0f20: efff ff49 | b8a8 d895 | 02e7 0100 | 0041 8b90 | cc00 0000 | 83c2 0241 | 8990 cc00 | 0000 81e2 
+  0x000001e6a3ad0f40: feff 1f00 | 85d2 0f84 | 780c 0000 | 488b b424 | 9800 0000 
+
+  0x000001e6a3ad0f54: ;   {metadata(method data for {method} {0x000001e7025e3f60} 'setBackendFlags' '(I)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad0f54: 49b8 a8d8 | 9502 e701 | 0000 4983 | 8010 0100 | 0001 4c8b | c048 8b94 | 2498 0000 | 0066 0f1f 
+  0x000001e6a3ad0f74: ;   {optimized virtual_call}
+  0x000001e6a3ad0f74: 4400 00e8 
+
+  0x000001e6a3ad0f78: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop }
+                      ;*invokespecial nSetBackendFlags {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGuiIO::setBackendFlags@2 (line 80)
+                      ; - imgui.ImGuiIO::removeBackendFlags@9 (line 94)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@21 (line 332)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad0f78: d610 0000 
+
+  0x000001e6a3ad0f7c: ;   {other}
+  0x000001e6a3ad0f7c: 0f1f 8400 | ec08 0006 | 410f be57 | 4085 d248 | 8bb4 2490 | 0000 000f | 854c 0c00 | 00c7 460c 
+  0x000001e6a3ad0f9c: 0000 0000 | 488b 9424 | 8000 0000 | 8b72 1848 | c1e6 0348 | 3b06 488b 
+
+  0x000001e6a3ad0fb4: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad0fb4: fe48 bb98 | ca95 02e7 
+
+  0x000001e6a3ad0fbc: ;   {metadata('imgui/glfw/ImGuiImplGlfw')}
+  0x000001e6a3ad0fbc: 0100 0049 | ba10 a401 | c2e6 0100 | 004c 8993 | 8801 0000 | 4883 8390 | 0100 0001 | 488b d60f 
+  0x000001e6a3ad0fdc: ;   {optimized virtual_call}
+  0x000001e6a3ad0fdc: 1f40 00e8 
+
+  0x000001e6a3ad0fe0: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokevirtual shutdown {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@21 (line 51)
+  0x000001e6a3ad0fe0: 890f 0000 
+
+  0x000001e6a3ad0fe4: ;   {other}
+  0x000001e6a3ad0fe4: 0f1f 8400 | 5409 0007 
+
+  0x000001e6a3ad0fec: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad0fec: 48be 98ca | 9502 e701 | 0000 4883 | 86b0 0100 
+
+  0x000001e6a3ad0ffc: ;   {metadata(method data for {method} {0x000001e702614860} 'destroyContext' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad0ffc: 0001 48be | 98dc 9502 | e701 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001e6a3ad101c: 0085 ff0f | 84e4 0b00 
+
+  0x000001e6a3ad1024: ;   {metadata(method data for {method} {0x000001e702614860} 'destroyContext' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1024: 0048 be98 | dc95 02e7 | 0100 0048 | 8386 1001 
+
+  0x000001e6a3ad1034: ;   {static_call}
+  0x000001e6a3ad1034: 0000 01e8 
+
+  0x000001e6a3ad1038: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokestatic nDestroyContext {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::destroyContext@0 (line 183)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@24 (line 52)
+  0x000001e6a3ad1038: 44e0 2907 
+
+  0x000001e6a3ad103c: ;   {other}
+  0x000001e6a3ad103c: 0f1f 8400 | ac09 0008 | 488b 9424 | 8000 0000 | 8b72 1848 | c1e6 0348 | 3b06 488b 
+
+  0x000001e6a3ad1058: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1058: fe48 bb98 | ca95 02e7 
+
+  0x000001e6a3ad1060: ;   {metadata('imgui/glfw/ImGuiImplGlfw')}
+  0x000001e6a3ad1060: 0100 0049 | ba10 a401 | c2e6 0100 | 004c 8993 | d001 0000 | 4883 83d8 | 0100 0001 
+
+  0x000001e6a3ad107c: ;   {optimized virtual_call}
+  0x000001e6a3ad107c: 488b d6e8 
+
+  0x000001e6a3ad1080: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokevirtual newFrame {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@31 (line 54)
+  0x000001e6a3ad1080: 3ce6 ffff 
+
+  0x000001e6a3ad1084: ;   {other}
+  0x000001e6a3ad1084: 0f1f 8400 | f409 0009 | 488b 9424 | 8000 0000 | 8b72 1c48 | c1e6 0348 | 3b06 488b 
+
+  0x000001e6a3ad10a0: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad10a0: fe48 bb98 | ca95 02e7 
+
+  0x000001e6a3ad10a8: ;   {metadata('imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad10a8: 0100 0049 | ba38 2a02 | c2e6 0100 | 004c 8993 | 0802 0000 | 4883 8310 | 0200 0001 
+
+  0x000001e6a3ad10c4: ;   {metadata(method data for {method} {0x000001e7025d9e70} 'newFrame' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad10c4: 48bf e0e2 | 9502 e701 | 0000 8b9f | cc00 0000 | 83c3 0289 | 9fcc 0000 | 0081 e3fe | ff1f 0085 
+  0x000001e6a3ad10e4: db0f 8449 | 0b00 008b | 7e0c 48c1 | e703 8b7f 
+
+  0x000001e6a3ad10f4: ;   {metadata(method data for {method} {0x000001e7025d9e70} 'newFrame' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad10f4: 1885 ff48 | bfe0 e295 | 02e7 0100 | 0048 c7c3 | 1001 0000 | 7507 48c7 | c320 0100 | 0048 8b04 
+  0x000001e6a3ad1114: 1f48 8d40 | 0148 8904 | 1f0f 8539 | 0000 0048 
+
+  0x000001e6a3ad1124: ;   {metadata(method data for {method} {0x000001e7025d9e70} 'newFrame' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad1124: 8bfe 48bb | e0e2 9502 | e701 0000 
+
+  0x000001e6a3ad1130: ;   {metadata('imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad1130: 49ba 382a | 02c2 e601 | 0000 4c89 | 9340 0100 | 0048 8383 | 4801 0000 | 0148 8bd6 
+
+  0x000001e6a3ad114c: ;   {optimized virtual_call}
+  0x000001e6a3ad114c: 6666 90e8 
+
+  0x000001e6a3ad1150: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokevirtual createDeviceObjects {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.gl3.ImGuiImplGl3::newFrame@11 (line 338)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@38 (line 55)
+  0x000001e6a3ad1150: 2cd9 2907 
+
+  0x000001e6a3ad1154: ;   {other}
+  0x000001e6a3ad1154: 0f1f 8400 | c40a 000a 
+
+  0x000001e6a3ad115c: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad115c: 48be 98ca | 9502 e701 | 0000 4883 | 8630 0200 
+
+  0x000001e6a3ad116c: ;   {metadata(method data for {method} {0x000001e702615010} 'newFrame' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad116c: 0001 48be | 90eb 9502 | e701 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001e6a3ad118c: 0085 ff0f | 84c5 0a00 
+
+  0x000001e6a3ad1194: ;   {metadata(method data for {method} {0x000001e702615010} 'newFrame' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1194: 0048 be90 | eb95 02e7 | 0100 0048 | 8386 1001 
+
+  0x000001e6a3ad11a4: ;   {static_call}
+  0x000001e6a3ad11a4: 0000 01e8 
+
+  0x000001e6a3ad11a8: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokestatic nNewFrame {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::newFrame@0 (line 248)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@41 (line 58)
+  0x000001e6a3ad11a8: b456 a007 
+
+  0x000001e6a3ad11ac: ;   {other}
+  0x000001e6a3ad11ac: 0f1f 8400 | 1c0b 000b 
+
+  0x000001e6a3ad11b4: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad11b4: 48ba 98ca | 9502 e701 | 0000 4883 | 8240 0200 
+
+  0x000001e6a3ad11c4: ;   {metadata(method data for {method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad11c4: 0001 48ba | c034 9502 | e701 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001e6a3ad11e4: 0085 f60f | 848e 0a00 
+
+  0x000001e6a3ad11ec: ;   {metadata(method data for {method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad11ec: 0048 bac0 | 3495 02e7 | 0100 0048 | 8382 1001 
+
+  0x000001e6a3ad11fc: ;   {oop("My scene"{0x0000000622e93a38})}
+  0x000001e6a3ad11fc: 0000 0148 | ba38 3ae9 | 2206 0000 | 0066 0f1f 
+
+  0x000001e6a3ad120c: ;   {static_call}
+  0x000001e6a3ad120c: 4400 00e8 
+
+  0x000001e6a3ad1210: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokestatic nBegin {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::begin@1 (line 570)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@46 (line 59)
+  0x000001e6a3ad1210: 4c9c 9f07 
+
+  0x000001e6a3ad1214: ;   {other}
+  0x000001e6a3ad1214: 0f1f 8400 | 840b 000c 
+
+  0x000001e6a3ad121c: ;   {metadata('imgui/ImVec2')}
+  0x000001e6a3ad121c: 48ba 089e | 01c2 e601 | 0000 498b | 87b8 0100 | 0048 8d78 | 1849 3bbf | c801 0000 | 0f87 5e0a 
+  0x000001e6a3ad123c: 0000 4989 | bfb8 0100 | 0048 c700 | 0100 0000 | 488b ca49 | ba00 0000 | c1e6 0100 | 0049 2bca 
+  0x000001e6a3ad125c: 8948 0848 | 33c9 8948 | 0c48 33c9 | 4889 4810 
+
+  0x000001e6a3ad126c: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad126c: 488b f048 | bf98 ca95 | 02e7 0100 | 0048 8387 | 5002 0000 
+
+  0x000001e6a3ad1280: ;   {metadata(method data for {method} {0x000001e7025d5bf0} '<init>' '(FF)V' in 'imgui/ImVec2')}
+  0x000001e6a3ad1280: 0148 bee8 | ec95 02e7 | 0100 008b | becc 0000 | 0083 c702 | 89be cc00 | 0000 81e7 | feff 1f00 
+  0x000001e6a3ad12a0: 85ff 0f84 | 010a 0000 
+
+  0x000001e6a3ad12a8: ;   {metadata(method data for {method} {0x000001e7025d5bf0} '<init>' '(FF)V' in 'imgui/ImVec2')}
+  0x000001e6a3ad12a8: 488b f048 | bfe8 ec95 | 02e7 0100 | 0048 8387 | 1001 0000 
+
+  0x000001e6a3ad12bc: ;   {metadata(method data for {method} {0x000001e6c1470f10} '<init>' '()V' in 'java/lang/Object')}
+  0x000001e6a3ad12bc: 0148 bee0 | 6800 02e7 | 0100 008b | becc 0000 | 0083 c702 | 89be cc00 | 0000 81e7 | feff 1f00 
+  0x000001e6a3ad12dc: 85ff 0f84 | e609 0000 
+
+  0x000001e6a3ad12e4: ;   {metadata(method data for {method} {0x000001e7025d5bf0} '<init>' '(FF)V' in 'imgui/ImVec2')}
+  0x000001e6a3ad12e4: 488b f048 | bfe8 ec95 | 02e7 0100 | 0048 8387 | 2001 0000 
+
+  0x000001e6a3ad12f8: ;   {metadata(method data for {method} {0x000001e7025d5d80} 'set' '(FF)Limgui/ImVec2;' in 'imgui/ImVec2')}
+  0x000001e6a3ad12f8: 0148 be70 | 3395 02e7 | 0100 008b | becc 0000 | 0083 c702 | 89be cc00 | 0000 81e7 | feff 1f00 
+  0x000001e6a3ad1318: 85ff 0f84 | cb09 0000 | c740 0c00 | 0096 43c7 | 4010 0000 
+
+  0x000001e6a3ad132c: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad132c: 9643 48be | 98ca 9502 | e701 0000 | 4883 8660 | 0200 0001 
+
+  0x000001e6a3ad1340: ;   {metadata(method data for {method} {0x000001e702618900} 'setWindowSize' '(Limgui/ImVec2;)V' in 'imgui/ImGui')}
+  0x000001e6a3ad1340: 48be 90ee | 9502 e701 | 0000 8bbe | cc00 0000 | 83c7 0289 | becc 0000 | 0081 e7fe | ff1f 0085 
+  0x000001e6a3ad1360: ff0f 84a5 
+
+  0x000001e6a3ad1364: ;   {metadata(method data for {method} {0x000001e702618900} 'setWindowSize' '(Limgui/ImVec2;)V' in 'imgui/ImGui')}
+  0x000001e6a3ad1364: 0900 0048 | be90 ee95 | 02e7 0100 | 0048 8386 | 1001 0000 
+
+  0x000001e6a3ad1378: ;   {section_word}
+  0x000001e6a3ad1378: 01c5 fa10 | 059f f7ff 
+
+  0x000001e6a3ad1380: ;   {section_word}
+  0x000001e6a3ad1380: ffc5 fa10 | 0d9b f7ff | ff66 0f1f 
+
+  0x000001e6a3ad138c: ;   {static_call}
+  0x000001e6a3ad138c: 4400 00e8 
+
+  0x000001e6a3ad1390: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokestatic nSetWindowSize {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::setWindowSize@8 (line 1310)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@61 (line 60)
+  0x000001e6a3ad1390: cc58 a007 
+
+  0x000001e6a3ad1394: ;   {other}
+  0x000001e6a3ad1394: 0f1f 8400 | 040d 000d | 4c8b 8424 | 8800 0000 
+
+  0x000001e6a3ad13a4: ; implicit exception: dispatches to 0x000001e6a3ad1d2d
+  0x000001e6a3ad13a4: 493b 0049 
+
+  0x000001e6a3ad13a8: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad13a8: 8bd0 48be | 98ca 9502 | e701 0000 | 8b52 0849 | ba00 0000 | c1e6 0100 | 0049 03d2 | 483b 9680 
+  0x000001e6a3ad13c8: 0200 0075 | 0d48 8386 | 8802 0000 | 01e9 6000 | 0000 483b | 9690 0200 | 0075 0d48 | 8386 9802 
+  0x000001e6a3ad13e8: 0000 01e9 | 4a00 0000 | 4883 be80 | 0200 0000 | 7517 4889 | 9680 0200 | 0048 c786 | 8802 0000 
+  0x000001e6a3ad1408: 0100 0000 | e929 0000 | 0048 83be | 9002 0000 | 0075 1748 | 8996 9002 | 0000 48c7 | 8698 0200 
+  0x000001e6a3ad1428: 0001 0000 | 00e9 0800 | 0000 4883 | 8670 0200 
+
+  0x000001e6a3ad1438: ;   {metadata(method data for {method} {0x000001e702402530} 'sceneImGui' '()V' in 'org/example/Hellena/core/Scenes/Scene')}
+  0x000001e6a3ad1438: 0001 48ba | f0ef 9502 | e701 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001e6a3ad1458: 0085 f60f | 84d1 0800 | 0041 8b50 | 1c48 c1e2 | 0348 85d2 
+
+  0x000001e6a3ad146c: ;   {metadata(method data for {method} {0x000001e702402530} 'sceneImGui' '()V' in 'org/example/Hellena/core/Scenes/Scene')}
+  0x000001e6a3ad146c: 48ba f0ef | 9502 e701 | 0000 48c7 | c610 0100 | 0074 0748 | c7c6 2001 | 0000 488b | 3c32 488d 
+  0x000001e6a3ad148c: 7f01 4889 | 3c32 0f84 | 0c01 0000 
+
+  0x000001e6a3ad1498: ;   {metadata(method data for {method} {0x000001e702402530} 'sceneImGui' '()V' in 'org/example/Hellena/core/Scenes/Scene')}
+  0x000001e6a3ad1498: 48ba f0ef | 9502 e701 | 0000 4883 | 8230 0100 
+
+  0x000001e6a3ad14a8: ;   {metadata(method data for {method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad14a8: 0001 48ba | c034 9502 | e701 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001e6a3ad14c8: 0085 f60f | 8482 0800 
+
+  0x000001e6a3ad14d0: ;   {metadata(method data for {method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad14d0: 0048 bac0 | 3495 02e7 | 0100 0048 | 8382 1001 
+
+  0x000001e6a3ad14e0: ;   {oop("Inspector"{0x0000000623ae1cf8})}
+  0x000001e6a3ad14e0: 0000 0148 | baf8 1cae | 2306 0000 
+
+  0x000001e6a3ad14ec: ;   {static_call}
+  0x000001e6a3ad14ec: 0066 90e8 
+
+  0x000001e6a3ad14f0: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokestatic nBegin {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::begin@1 (line 570)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@9 (line 62)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad14f0: 8cdb 2907 
+
+  0x000001e6a3ad14f4: ;   {other}
+  0x000001e6a3ad14f4: 0f1f 8400 | 640e 000e | 4c8b 8424 | 8800 0000 | 418b 501c | 48c1 e203 
+
+  0x000001e6a3ad150c: ; implicit exception: dispatches to 0x000001e6a3ad1d74
+  0x000001e6a3ad150c: 483b 0248 
+
+  0x000001e6a3ad1510: ;   {metadata(method data for {method} {0x000001e702402530} 'sceneImGui' '()V' in 'org/example/Hellena/core/Scenes/Scene')}
+  0x000001e6a3ad1510: 8bf2 48bf | f0ef 9502 | e701 0000 
+
+  0x000001e6a3ad151c: ;   {metadata('org/example/Hellena/core/GameObject')}
+  0x000001e6a3ad151c: 49ba d8bc | 02c2 e601 | 0000 4c89 | 9750 0100 | 0048 8387 | 5801 0000 
+
+  0x000001e6a3ad1534: ;   {optimized virtual_call}
+  0x000001e6a3ad1534: 0166 90e8 
+
+  0x000001e6a3ad1538: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokevirtual imgui {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@17 (line 63)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1538: 44d5 2907 
+
+  0x000001e6a3ad153c: ;   {other}
+  0x000001e6a3ad153c: 0f1f 8400 | ac0e 000f 
+
+  0x000001e6a3ad1544: ;   {metadata(method data for {method} {0x000001e702402530} 'sceneImGui' '()V' in 'org/example/Hellena/core/Scenes/Scene')}
+  0x000001e6a3ad1544: 48be f0ef | 9502 e701 | 0000 4883 | 8678 0100 
+
+  0x000001e6a3ad1554: ;   {metadata(method data for {method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1554: 0001 48be | 2036 9502 | e701 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001e6a3ad1574: 0085 ff0f | 84fc 0700 
+
+  0x000001e6a3ad157c: ;   {metadata(method data for {method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad157c: 0048 be20 | 3695 02e7 | 0100 0048 | 8386 1001 
+
+  0x000001e6a3ad158c: ;   {static_call}
+  0x000001e6a3ad158c: 0000 01e8 
+
+  0x000001e6a3ad1590: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*invokestatic nEnd {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::end@0 (line 618)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@20 (line 64)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1590: ecda 2907 
+
+  0x000001e6a3ad1594: ;   {other}
+  0x000001e6a3ad1594: 0f1f 8400 | 040f 0010 | 4c8b 8424 | 8800 0000 
+
+  0x000001e6a3ad15a4: ;   {metadata(method data for {method} {0x000001e702402530} 'sceneImGui' '()V' in 'org/example/Hellena/core/Scenes/Scene')}
+  0x000001e6a3ad15a4: 48ba f0ef | 9502 e701 
+
+  0x000001e6a3ad15ac: ;   {metadata('org/example/Hellena/core/Scenes/LevelEditorScene')}
+  0x000001e6a3ad15ac: 0000 49ba | 0004 00c2 | e601 0000 | 4c89 9298 | 0100 0048 | 8382 a001 
+
+  0x000001e6a3ad15c4: ;   {metadata(method data for {method} {0x000001e702403188} 'imgui' '()V' in 'org/example/Hellena/core/Scenes/LevelEditorScene')}
+  0x000001e6a3ad15c4: 0000 0148 | ba58 f695 | 02e7 0100 | 008b b2cc | 0000 0083 | c602 89b2 | cc00 0000 | 81e6 feff 
+  0x000001e6a3ad15e4: 1f00 85f6 | 0f84 ac07 
+
+  0x000001e6a3ad15ec: ;   {metadata(method data for {method} {0x000001e702403188} 'imgui' '()V' in 'org/example/Hellena/core/Scenes/LevelEditorScene')}
+  0x000001e6a3ad15ec: 0000 48ba | 58f6 9502 | e701 0000 | 4883 8210 | 0100 0001 
+
+  0x000001e6a3ad1600: ;   {metadata(method data for {method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad1600: 48ba c034 | 9502 e701 | 0000 8bb2 | cc00 0000 | 83c6 0289 | b2cc 0000 | 0081 e6fe | ff1f 0085 
+  0x000001e6a3ad1620: f60f 8494 
+
+  0x000001e6a3ad1624: ;   {metadata(method data for {method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad1624: 0700 0048 | bac0 3495 | 02e7 0100 | 0048 8382 | 1001 0000 
+
+  0x000001e6a3ad1638: ;   {oop("Test window"{0x0000000622e93c90})}
+  0x000001e6a3ad1638: 0148 ba90 | 3ce9 2206 | 0000 000f 
+
+  0x000001e6a3ad1644: ;   {static_call}
+  0x000001e6a3ad1644: 1f40 00e8 
+
+  0x000001e6a3ad1648: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokestatic nBegin {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::begin@1 (line 570)
+                      ; - org.example.Hellena.core.Scenes.LevelEditorScene::imgui@2 (line 59)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@24 (line 67)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1648: 1498 9f07 
+
+  0x000001e6a3ad164c: ;   {other}
+  0x000001e6a3ad164c: 0f1f 8400 | bc0f 0011 
+
+  0x000001e6a3ad1654: ;   {metadata(method data for {method} {0x000001e702403188} 'imgui' '()V' in 'org/example/Hellena/core/Scenes/LevelEditorScene')}
+  0x000001e6a3ad1654: 48ba 58f6 | 9502 e701 | 0000 4883 | 8220 0100 
+
+  0x000001e6a3ad1664: ;   {metadata(method data for {method} {0x000001e702622e50} 'text' '(Ljava/lang/String;)V' in 'imgui/ImGui')}
+  0x000001e6a3ad1664: 0001 48ba | a0f9 9502 | e701 0000 | 8bb2 cc00 | 0000 83c6 | 0289 b2cc | 0000 0081 | e6fe ff1f 
+  0x000001e6a3ad1684: 0085 f60f | 844f 0700 
+
+  0x000001e6a3ad168c: ;   {metadata(method data for {method} {0x000001e702622e50} 'text' '(Ljava/lang/String;)V' in 'imgui/ImGui')}
+  0x000001e6a3ad168c: 0048 baa0 | f995 02e7 | 0100 0048 | 8382 1001 
+
+  0x000001e6a3ad169c: ;   {oop("Something"{0x0000000622e93cc8})}
+  0x000001e6a3ad169c: 0000 0148 | bac8 3ce9 | 2206 0000 | 0066 0f1f 
+
+  0x000001e6a3ad16ac: ;   {static_call}
+  0x000001e6a3ad16ac: 4400 00e8 
+
+  0x000001e6a3ad16b0: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokestatic nText {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::text@1 (line 2840)
+                      ; - org.example.Hellena.core.Scenes.LevelEditorScene::imgui@8 (line 60)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@24 (line 67)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad16b0: 2c5a a007 
+
+  0x000001e6a3ad16b4: ;   {other}
+  0x000001e6a3ad16b4: 0f1f 8400 | 2410 0012 
+
+  0x000001e6a3ad16bc: ;   {metadata(method data for {method} {0x000001e702403188} 'imgui' '()V' in 'org/example/Hellena/core/Scenes/LevelEditorScene')}
+  0x000001e6a3ad16bc: 48be 58f6 | 9502 e701 | 0000 4883 | 8630 0100 
+
+  0x000001e6a3ad16cc: ;   {metadata(method data for {method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad16cc: 0001 48be | 2036 9502 | e701 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001e6a3ad16ec: 0085 ff0f | 8408 0700 
+
+  0x000001e6a3ad16f4: ;   {metadata(method data for {method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad16f4: 0048 be20 | 3695 02e7 | 0100 0048 | 8386 1001 
+
+  0x000001e6a3ad1704: ;   {static_call}
+  0x000001e6a3ad1704: 0000 01e8 
+
+  0x000001e6a3ad1708: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokestatic nEnd {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::end@0 (line 618)
+                      ; - org.example.Hellena.core.Scenes.LevelEditorScene::imgui@11 (line 61)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@24 (line 67)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1708: d49b 9f07 
+
+  0x000001e6a3ad170c: ;   {other}
+  0x000001e6a3ad170c: 0f1f 8400 | 7c10 0013 
+
+  0x000001e6a3ad1714: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1714: 48be 98ca | 9502 e701 | 0000 4883 | 86a8 0200 
+
+  0x000001e6a3ad1724: ;   {metadata(method data for {method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1724: 0001 48be | 2036 9502 | e701 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001e6a3ad1744: 0085 ff0f | 84d1 0600 
+
+  0x000001e6a3ad174c: ;   {metadata(method data for {method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad174c: 0048 be20 | 3695 02e7 | 0100 0048 | 8386 1001 
+
+  0x000001e6a3ad175c: ;   {static_call}
+  0x000001e6a3ad175c: 0000 01e8 
+
+  0x000001e6a3ad1760: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokestatic nEnd {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::end@0 (line 618)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@68 (line 65)
+  0x000001e6a3ad1760: 7c9b 9f07 
+
+  0x000001e6a3ad1764: ;   {other}
+  0x000001e6a3ad1764: 0f1f 8400 | d410 0014 
+
+  0x000001e6a3ad176c: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad176c: 48be 98ca | 9502 e701 | 0000 4883 | 86b8 0200 
+
+  0x000001e6a3ad177c: ;   {metadata(method data for {method} {0x000001e702615290} 'render' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad177c: 0001 48be | 50fc 9502 | e701 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001e6a3ad179c: 0085 ff0f | 849a 0600 
+
+  0x000001e6a3ad17a4: ;   {metadata(method data for {method} {0x000001e702615290} 'render' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad17a4: 0048 be50 | fc95 02e7 | 0100 0048 | 8386 1001 
+
+  0x000001e6a3ad17b4: ;   {static_call}
+  0x000001e6a3ad17b4: 0000 01e8 
+
+  0x000001e6a3ad17b8: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokestatic nRender {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::render@0 (line 271)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@71 (line 66)
+  0x000001e6a3ad17b8: 245d a007 
+
+  0x000001e6a3ad17bc: ;   {other}
+  0x000001e6a3ad17bc: 0f1f 8400 | 2c11 0015 | 488b 9424 | 8000 0000 | 8b72 1c48 
+
+  0x000001e6a3ad17d0: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad17d0: c1e6 0348 | bf98 ca95 | 02e7 0100 | 0048 8387 | c802 0000 
+
+  0x000001e6a3ad17e4: ;   {metadata(method data for {method} {0x000001e7026153d8} 'getDrawData' '()Limgui/ImDrawData;' in 'imgui/ImGui')}
+  0x000001e6a3ad17e4: 0148 bfa8 | fd95 02e7 | 0100 008b | 9fcc 0000 | 0083 c302 | 899f cc00 | 0000 81e3 | feff 1f00 
+  0x000001e6a3ad1804: 85db 0f84 | 5406 0000 
+
+  0x000001e6a3ad180c: ;   {metadata(method data for {method} {0x000001e7026153d8} 'getDrawData' '()Limgui/ImDrawData;' in 'imgui/ImGui')}
+  0x000001e6a3ad180c: 48bf a8fd | 9502 e701 | 0000 4883 | 8710 0100 | 0001 4889 | b424 a000 
+
+  0x000001e6a3ad1824: ;   {static_call}
+  0x000001e6a3ad1824: 0000 90e8 
+
+  0x000001e6a3ad1828: ; ImmutableOopMap {[128]=Oop [160]=Oop }
+                      ;*invokestatic nGetDrawData {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::getDrawData@3 (line 284)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@78 (line 68)
+  0x000001e6a3ad1828: b460 a007 
+
+  0x000001e6a3ad182c: ;   {other}
+  0x000001e6a3ad182c: 0f1f 8400 | 9c11 0016 
+
+  0x000001e6a3ad1834: ;   {oop(a 'imgui/ImDrawData'{0x00000006233c4fa8})}
+  0x000001e6a3ad1834: 49b8 a84f | 3c23 0600 | 0000 4989 | 4010 488b | b424 a000 | 0000 483b | 0648 8bd6 
+
+  0x000001e6a3ad1850: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1850: 48bf 98ca | 9502 e701 
+
+  0x000001e6a3ad1858: ;   {metadata('imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad1858: 0000 49ba | 382a 02c2 | e601 0000 | 4c89 97e8 | 0200 0048 | 8387 f002 | 0000 0148 
+
+  0x000001e6a3ad1874: ;   {optimized virtual_call}
+  0x000001e6a3ad1874: 8bd6 90e8 
+
+  0x000001e6a3ad1878: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokevirtual renderDrawData {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@81 (line 68)
+  0x000001e6a3ad1878: 84d4 feff 
+
+  0x000001e6a3ad187c: ;   {other}
+  0x000001e6a3ad187c: 0f1f 8400 | ec11 0017 | 488b 9424 | 8000 0000 | 8b72 0c48 | c1e6 0348 | 3b06 488b 
+
+  0x000001e6a3ad1898: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1898: fe48 bb98 | ca95 02e7 | 0100 0048 | 8383 1003 
+
+  0x000001e6a3ad18a8: ;   {metadata(method data for {method} {0x000001e7025e3cb0} 'hasConfigFlags' '(I)Z' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad18a8: 0000 0148 | bfd0 f794 | 02e7 0100 | 008b 9fcc | 0000 0083 | c302 899f | cc00 0000 | 81e3 feff 
+  0x000001e6a3ad18c8: 1f00 85db | 0f84 be05 | 0000 488b 
+
+  0x000001e6a3ad18d4: ;   {metadata(method data for {method} {0x000001e7025e3cb0} 'hasConfigFlags' '(I)Z' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad18d4: fe48 bbd0 | f794 02e7 | 0100 0048 | 8383 1001 
+
+  0x000001e6a3ad18e4: ;   {metadata(method data for {method} {0x000001e7025e39b8} 'getConfigFlags' '()I' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad18e4: 0000 0148 | bf98 f994 | 02e7 0100 | 008b 9fcc | 0000 0083 | c302 899f | cc00 0000 | 81e3 feff 
+  0x000001e6a3ad1904: 1f00 85db | 0f84 a305 | 0000 488b 
+
+  0x000001e6a3ad1910: ;   {metadata(method data for {method} {0x000001e7025e39b8} 'getConfigFlags' '()I' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1910: fe48 bb98 | f994 02e7 | 0100 0048 | 8383 1001 | 0000 0148 
+
+  0x000001e6a3ad1924: ;   {optimized virtual_call}
+  0x000001e6a3ad1924: 8bd6 90e8 
+
+  0x000001e6a3ad1928: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokespecial nGetConfigFlags {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGuiIO::getConfigFlags@1 (line 30)
+                      ; - imgui.ImGuiIO::hasConfigFlags@1 (line 58)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@91 (line 69)
+  0x000001e6a3ad1928: 14e5 9e07 
+
+  0x000001e6a3ad192c: ;   {other}
+  0x000001e6a3ad192c: 0f1f 8400 | 9c12 0018 | 2500 0400 
+
+  0x000001e6a3ad1938: ;   {metadata(method data for {method} {0x000001e7025e3cb0} 'hasConfigFlags' '(I)Z' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1938: 0085 c048 | bed0 f794 | 02e7 0100 | 0048 c7c7 | 4801 0000 | 7407 48c7 | c758 0100 | 0048 8b1c 
+  0x000001e6a3ad1958: 3e48 8d5b | 0148 891c | 3e0f 841a 
+
+  0x000001e6a3ad1964: ;   {metadata(method data for {method} {0x000001e7025e3cb0} 'hasConfigFlags' '(I)Z' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1964: 0000 0048 | bed0 f794 | 02e7 0100 | 00ff 8668 | 0100 00be | 0100 0000 | e905 0000 | 00be 0000 
+  0x000001e6a3ad1984: 0000 83e6 
+
+  0x000001e6a3ad1988: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1988: 0185 f648 | be98 ca95 | 02e7 0100 | 0048 c7c7 | 4803 0000 | 7407 48c7 | c758 0300 | 0048 8b1c 
+  0x000001e6a3ad19a8: 3e48 8d5b | 0148 891c | 3e0f 84e5 
+
+  0x000001e6a3ad19b4: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad19b4: 0000 0048 | be98 ca95 | 02e7 0100 | 0048 8386 | 6803 0000 
+
+  0x000001e6a3ad19c8: ;   {metadata(method data for {method} {0x000001e70266c940} 'updatePlatformWindows' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad19c8: 0148 be50 | 0196 02e7 | 0100 008b | becc 0000 | 0083 c702 | 89be cc00 | 0000 81e7 | feff 1f00 
+  0x000001e6a3ad19e8: 85ff 0f84 | e204 0000 
+
+  0x000001e6a3ad19f0: ;   {metadata(method data for {method} {0x000001e70266c940} 'updatePlatformWindows' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad19f0: 48be 5001 | 9602 e701 | 0000 4883 | 8610 0100 | 0001 0f1f 
+
+  0x000001e6a3ad1a04: ;   {static_call}
+  0x000001e6a3ad1a04: 4400 00e8 
+
+  0x000001e6a3ad1a08: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokestatic nUpdatePlatformWindows {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::updatePlatformWindows@0 (line 13525)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@97 (line 70)
+  0x000001e6a3ad1a08: d466 a007 
+
+  0x000001e6a3ad1a0c: ;   {other}
+  0x000001e6a3ad1a0c: 0f1f 8400 | 7c13 0019 
+
+  0x000001e6a3ad1a14: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1a14: 48be 98ca | 9502 e701 | 0000 4883 | 8678 0300 
+
+  0x000001e6a3ad1a24: ;   {metadata(method data for {method} {0x000001e70266ca80} 'renderPlatformWindowsDefault' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1a24: 0001 48be | a802 9602 | e701 0000 | 8bbe cc00 | 0000 83c7 | 0289 becc | 0000 0081 | e7fe ff1f 
+  0x000001e6a3ad1a44: 0085 ff0f | 84a6 0400 
+
+  0x000001e6a3ad1a4c: ;   {metadata(method data for {method} {0x000001e70266ca80} 'renderPlatformWindowsDefault' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1a4c: 0048 bea8 | 0296 02e7 | 0100 0048 | 8386 1001 
+
+  0x000001e6a3ad1a5c: ;   {static_call}
+  0x000001e6a3ad1a5c: 0000 01e8 
+
+  0x000001e6a3ad1a60: ; ImmutableOopMap {[128]=Oop }
+                      ;*invokestatic nRenderPlatformWindowsDefault {reexecute=0 rethrow=0 return_oop=0}
+                      ; - imgui.ImGui::renderPlatformWindowsDefault@0 (line 13537)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@100 (line 71)
+  0x000001e6a3ad1a60: 7c6a a007 
+
+  0x000001e6a3ad1a64: ;   {other}
+  0x000001e6a3ad1a64: 0f1f 8400 | d413 001a | 488b 9424 | 8000 0000 | 488b 7210 
+
+  0x000001e6a3ad1a78: ;   {metadata(method data for {method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1a78: 48ba 98ca | 9502 e701 | 0000 4883 | 8288 0300 | 0001 488b 
+
+  0x000001e6a3ad1a8c: ;   {static_call}
+  0x000001e6a3ad1a8c: d666 90e8 
+
+  0x000001e6a3ad1a90: ; ImmutableOopMap {}
+                      ;*invokestatic glfwMakeContextCurrent {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@107 (line 72)
+  0x000001e6a3ad1a90: ac74 ffff 
+
+  0x000001e6a3ad1a94: ;   {other}
+  0x000001e6a3ad1a94: 0f1f 8400 | 0414 001b | 4881 c4b0 | 0000 005d 
+
+  0x000001e6a3ad1aa4: ;   {poll_return}
+  0x000001e6a3ad1aa4: 493b a748 | 0400 000f | 8763 0400 
+
+  0x000001e6a3ad1ab0: ;   {metadata({method} {0x000001e7025be960} 'update' '(Lorg/example/Hellena/core/Scenes/Scene;)V' in 'org/example/Hellena/core/util/ImGuiLayer')}
+  0x000001e6a3ad1ab0: 00c3 49ba | 58e9 5b02 | e701 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1ac8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1ac8: ffe8 b283 
+
+  0x000001e6a3ad1acc: ; ImmutableOopMap {rdx=Oop r8=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@-1 (line 49)
+  0x000001e6a3ad1acc: 3607 e9e3 
+
+  0x000001e6a3ad1ad0: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1ad0: f0ff ffe8 
+
+  0x000001e6a3ad1ad4: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*invokevirtual shutdown {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1ad4: a823 3607 
+
+  0x000001e6a3ad1ad8: ;   {metadata({method} {0x000001e7025d9db8} 'shutdown' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad1ad8: 49ba b09d | 5d02 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1aec: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1aec: ffff ffe8 
+
+  0x000001e6a3ad1af0: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@-1 (line 326)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1af0: 8c83 3607 | e970 f1ff 
+
+  0x000001e6a3ad1af8: ;   {metadata({method} {0x000001e702614d88} 'getIO' '()Limgui/ImGuiIO;' in 'imgui/ImGui')}
+  0x000001e6a3ad1af8: ff49 ba80 | 4d61 02e7 | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001e6a3ad1b10: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1b10: e86b 8336 
+
+  0x000001e6a3ad1b14: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::getIO@-1 (line 222)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@0 (line 326)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1b14: 07e9 88f1 
+
+  0x000001e6a3ad1b18: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1b18: ffff e861 
+
+  0x000001e6a3ad1b1c: ; ImmutableOopMap {rsi=Oop [128]=Oop [136]=Oop [144]=Oop }
+                      ;*putfield ptr {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) imgui.ImGui::getIO@6 (line 222)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@0 (line 326)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+                      ;   {metadata({method} {0x000001e7025da7e8} 'shutdownPlatformInterface' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad1b1c: 2336 0749 | bae0 a75d | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1b34: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1b34: ffff e845 
+
+  0x000001e6a3ad1b38: ; ImmutableOopMap {rsi=Oop [128]=Oop [136]=Oop [144]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.gl3.ImGuiImplGl3::shutdownPlatformInterface@-1 (line 765)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@5 (line 328)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1b38: 8336 07e9 | ecf1 ffff 
+
+  0x000001e6a3ad1b40: ;   {metadata({method} {0x000001e70266cbc0} 'destroyPlatformWindows' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1b40: 49ba b8cb | 6602 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1b54: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1b54: ffff ffe8 
+
+  0x000001e6a3ad1b58: ; ImmutableOopMap {rsi=Oop [128]=Oop [136]=Oop [144]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::destroyPlatformWindows@-1 (line 13550)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdownPlatformInterface@0 (line 765)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@5 (line 328)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1b58: 2483 3607 | e904 f2ff 
+
+  0x000001e6a3ad1b60: ;   {metadata({method} {0x000001e7025eae18} 'setBackendRendererName' '(Ljava/lang/String;)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1b60: ff49 ba10 | ae5e 02e7 | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001e6a3ad1b78: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1b78: e803 8336 
+
+  0x000001e6a3ad1b7c: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGuiIO::setBackendRendererName@-1 (line 1060)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@14 (line 331)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1b7c: 07e9 8df2 
+
+  0x000001e6a3ad1b80: ;   {metadata({method} {0x000001e7025e40e0} 'removeBackendFlags' '(I)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1b80: ffff 49ba | d840 5e02 | e701 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1b98: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1b98: ffe8 e282 
+
+  0x000001e6a3ad1b9c: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGuiIO::removeBackendFlags@-1 (line 94)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@21 (line 332)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1b9c: 3607 e9ea 
+
+  0x000001e6a3ad1ba0: ;   {metadata({method} {0x000001e7025e3ea8} 'getBackendFlags' '()I' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1ba0: f2ff ff49 | baa0 3e5e | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1bb8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1bb8: ffff e8c1 
+
+  0x000001e6a3ad1bbc: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGuiIO::getBackendFlags@-1 (line 73)
+                      ; - imgui.ImGuiIO::removeBackendFlags@2 (line 94)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@21 (line 332)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1bbc: 8236 07e9 | 0af3 ffff 
+
+  0x000001e6a3ad1bc4: ;   {metadata({method} {0x000001e7025e3f60} 'setBackendFlags' '(I)V' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1bc4: 49ba 583f | 5e02 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1bd8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1bd8: ffff ffe8 
+
+  0x000001e6a3ad1bdc: ; ImmutableOopMap {[128]=Oop [136]=Oop [144]=Oop [152]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGuiIO::setBackendFlags@-1 (line 80)
+                      ; - imgui.ImGuiIO::removeBackendFlags@9 (line 94)
+                      ; - imgui.gl3.ImGuiImplGl3::shutdown@21 (line 332)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@14 (line 50)
+  0x000001e6a3ad1bdc: a082 3607 | e967 f3ff | ff8b 560c | 48c1 e203 | 4883 fa00 | 0f84 a3f3 | ffff 4889 
+
+  0x000001e6a3ad1bf8: ;   {runtime_call g1_pre_barrier_slow}
+  0x000001e6a3ad1bf8: 1424 e881 | 8836 07e9 | 95f3 ffff 
+
+  0x000001e6a3ad1c04: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1c04: e877 2236 
+
+  0x000001e6a3ad1c08: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*invokevirtual shutdown {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@21 (line 51)
+                      ;   {metadata({method} {0x000001e702614860} 'destroyContext' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1c08: 0749 ba58 | 4861 02e7 | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001e6a3ad1c20: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1c20: e85b 8236 
+
+  0x000001e6a3ad1c24: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::destroyContext@-1 (line 183)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@24 (line 52)
+  0x000001e6a3ad1c24: 07e9 fbf3 
+
+  0x000001e6a3ad1c28: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1c28: ffff e851 
+
+  0x000001e6a3ad1c2c: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*invokevirtual newFrame {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@31 (line 54)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1c2c: 2236 07e8 
+
+  0x000001e6a3ad1c30: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*invokevirtual newFrame {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@38 (line 55)
+  0x000001e6a3ad1c30: 4c22 3607 
+
+  0x000001e6a3ad1c34: ;   {metadata({method} {0x000001e7025d9e70} 'newFrame' '()V' in 'imgui/gl3/ImGuiImplGl3')}
+  0x000001e6a3ad1c34: 49ba 689e | 5d02 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1c48: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1c48: ffff ffe8 
+
+  0x000001e6a3ad1c4c: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.gl3.ImGuiImplGl3::newFrame@-1 (line 337)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@38 (line 55)
+  0x000001e6a3ad1c4c: 3082 3607 | e996 f4ff 
+
+  0x000001e6a3ad1c54: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1c54: ffe8 2622 
+
+  0x000001e6a3ad1c58: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop [136]=Oop }
+                      ;*getfield shaderHandle {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) imgui.gl3.ImGuiImplGl3::newFrame@4 (line 337)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@38 (line 55)
+                      ;   {metadata({method} {0x000001e702615010} 'newFrame' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1c58: 3607 49ba | 0850 6102 | e701 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1c70: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1c70: ffe8 0a82 
+
+  0x000001e6a3ad1c74: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::newFrame@-1 (line 248)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@41 (line 58)
+  0x000001e6a3ad1c74: 3607 e91a 
+
+  0x000001e6a3ad1c78: ;   {metadata({method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad1c78: f5ff ff49 | bab8 7161 | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1c90: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1c90: ffff e8e9 
+
+  0x000001e6a3ad1c94: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::begin@-1 (line 570)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@46 (line 59)
+  0x000001e6a3ad1c94: 8136 07e9 | 51f5 ffff 
+
+  0x000001e6a3ad1c9c: ;   {runtime_call fast_new_instance Runtime1 stub}
+  0x000001e6a3ad1c9c: 488b d2e8 
+
+  0x000001e6a3ad1ca0: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*new {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@50 (line 60)
+  0x000001e6a3ad1ca0: 5c2f 3607 | e9c3 f5ff 
+
+  0x000001e6a3ad1ca8: ;   {metadata({method} {0x000001e7025d5bf0} '<init>' '(FF)V' in 'imgui/ImVec2')}
+  0x000001e6a3ad1ca8: ff49 bae8 | 5b5d 02e7 | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001e6a3ad1cc0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1cc0: e8bb 8136 
+
+  0x000001e6a3ad1cc4: ; ImmutableOopMap {rax=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImVec2::<init>@-1 (line 15)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@58 (line 60)
+  0x000001e6a3ad1cc4: 07e9 def5 
+
+  0x000001e6a3ad1cc8: ;   {metadata({method} {0x000001e6c1470f10} '<init>' '()V' in 'java/lang/Object')}
+  0x000001e6a3ad1cc8: ffff 49ba | 080f 47c1 | e601 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1ce0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1ce0: ffe8 9a81 
+
+  0x000001e6a3ad1ce4: ; ImmutableOopMap {rax=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - java.lang.Object::<init>@-1 (line 45)
+                      ; - imgui.ImVec2::<init>@1 (line 15)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@58 (line 60)
+  0x000001e6a3ad1ce4: 3607 e9f9 
+
+  0x000001e6a3ad1ce8: ;   {metadata({method} {0x000001e7025d5d80} 'set' '(FF)Limgui/ImVec2;' in 'imgui/ImVec2')}
+  0x000001e6a3ad1ce8: f5ff ff49 | ba78 5d5d | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1d00: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1d00: ffff e879 
+
+  0x000001e6a3ad1d04: ; ImmutableOopMap {rax=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImVec2::set@-1 (line 24)
+                      ; - imgui.ImVec2::<init>@7 (line 16)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@58 (line 60)
+  0x000001e6a3ad1d04: 8136 07e9 | 14f6 ffff 
+
+  0x000001e6a3ad1d0c: ;   {metadata({method} {0x000001e702618900} 'setWindowSize' '(Limgui/ImVec2;)V' in 'imgui/ImGui')}
+  0x000001e6a3ad1d0c: 49ba f888 | 6102 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1d20: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1d20: ffff ffe8 
+
+  0x000001e6a3ad1d24: ; ImmutableOopMap {rax=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::setWindowSize@-1 (line 1310)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@61 (line 60)
+  0x000001e6a3ad1d24: 5881 3607 | e93a f6ff 
+
+  0x000001e6a3ad1d2c: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1d2c: ffe8 4e21 
+
+  0x000001e6a3ad1d30: ; ImmutableOopMap {r8=Oop [128]=Oop [136]=Oop }
+                      ;*invokevirtual sceneImGui {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+                      ;   {metadata({method} {0x000001e702402530} 'sceneImGui' '()V' in 'org/example/Hellena/core/Scenes/Scene')}
+  0x000001e6a3ad1d30: 3607 49ba | 2825 4002 | e701 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1d48: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1d48: ffe8 3281 
+
+  0x000001e6a3ad1d4c: ; ImmutableOopMap {r8=Oop [128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@-1 (line 61)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1d4c: 3607 e90e 
+
+  0x000001e6a3ad1d50: ;   {metadata({method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad1d50: f7ff ff49 | bab8 7161 | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1d68: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1d68: ffff e811 
+
+  0x000001e6a3ad1d6c: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::begin@-1 (line 570)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@9 (line 62)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1d6c: 8136 07e9 | 5df7 ffff 
+
+  0x000001e6a3ad1d74: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1d74: e807 2136 
+
+  0x000001e6a3ad1d78: ; ImmutableOopMap {r8=Oop rdx=Oop [128]=Oop [136]=Oop }
+                      ;*invokevirtual imgui {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@17 (line 63)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+                      ;   {metadata({method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1d78: 0749 ba68 | 7761 02e7 | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001e6a3ad1d90: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1d90: e8eb 8036 
+
+  0x000001e6a3ad1d94: ; ImmutableOopMap {[128]=Oop [136]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::end@-1 (line 618)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@20 (line 64)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1d94: 07e9 e3f7 
+
+  0x000001e6a3ad1d98: ;   {metadata({method} {0x000001e702403188} 'imgui' '()V' in 'org/example/Hellena/core/Scenes/LevelEditorScene')}
+  0x000001e6a3ad1d98: ffff 49ba | 8031 4002 | e701 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1db0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1db0: ffe8 ca80 
+
+  0x000001e6a3ad1db4: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - org.example.Hellena.core.Scenes.LevelEditorScene::imgui@-1 (line 59)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@24 (line 67)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1db4: 3607 e933 
+
+  0x000001e6a3ad1db8: ;   {metadata({method} {0x000001e7026171c0} 'begin' '(Ljava/lang/String;)Z' in 'imgui/ImGui')}
+  0x000001e6a3ad1db8: f8ff ff49 | bab8 7161 | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1dd0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1dd0: ffff e8a9 
+
+  0x000001e6a3ad1dd4: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::begin@-1 (line 570)
+                      ; - org.example.Hellena.core.Scenes.LevelEditorScene::imgui@2 (line 59)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@24 (line 67)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1dd4: 8036 07e9 | 4bf8 ffff 
+
+  0x000001e6a3ad1ddc: ;   {metadata({method} {0x000001e702622e50} 'text' '(Ljava/lang/String;)V' in 'imgui/ImGui')}
+  0x000001e6a3ad1ddc: 49ba 482e | 6202 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1df0: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1df0: ffff ffe8 
+
+  0x000001e6a3ad1df4: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::text@-1 (line 2840)
+                      ; - org.example.Hellena.core.Scenes.LevelEditorScene::imgui@8 (line 60)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@24 (line 67)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1df4: 8880 3607 | e990 f8ff 
+
+  0x000001e6a3ad1dfc: ;   {metadata({method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1dfc: ff49 ba68 | 7761 02e7 | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001e6a3ad1e14: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1e14: e867 8036 
+
+  0x000001e6a3ad1e18: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::end@-1 (line 618)
+                      ; - org.example.Hellena.core.Scenes.LevelEditorScene::imgui@11 (line 61)
+                      ; - org.example.Hellena.core.Scenes.Scene::sceneImGui@24 (line 67)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@65 (line 63)
+  0x000001e6a3ad1e18: 07e9 d7f8 
+
+  0x000001e6a3ad1e1c: ;   {metadata({method} {0x000001e702617770} 'end' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1e1c: ffff 49ba | 6877 6102 | e701 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1e34: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1e34: ffe8 4680 
+
+  0x000001e6a3ad1e38: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::end@-1 (line 618)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@68 (line 65)
+  0x000001e6a3ad1e38: 3607 e90e 
+
+  0x000001e6a3ad1e3c: ;   {metadata({method} {0x000001e702615290} 'render' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1e3c: f9ff ff49 | ba88 5261 | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1e54: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1e54: ffff e825 
+
+  0x000001e6a3ad1e58: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::render@-1 (line 271)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@71 (line 66)
+  0x000001e6a3ad1e58: 8036 07e9 | 45f9 ffff 
+
+  0x000001e6a3ad1e60: ;   {metadata({method} {0x000001e7026153d8} 'getDrawData' '()Limgui/ImDrawData;' in 'imgui/ImGui')}
+  0x000001e6a3ad1e60: 49ba d053 | 6102 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1e74: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1e74: ffff ffe8 
+
+  0x000001e6a3ad1e78: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::getDrawData@-1 (line 284)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@78 (line 68)
+  0x000001e6a3ad1e78: 0480 3607 | e98b f9ff 
+
+  0x000001e6a3ad1e80: ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1e80: ffe8 fa1f 
+
+  0x000001e6a3ad1e84: ; ImmutableOopMap {r8=Oop [128]=Oop [160]=Oop }
+                      ;*putfield ptr {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) imgui.ImGui::getDrawData@6 (line 284)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@78 (line 68)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1e84: 3607 e8f5 
+
+  0x000001e6a3ad1e88: ; ImmutableOopMap {r8=Oop rsi=Oop [128]=Oop }
+                      ;*invokevirtual renderDrawData {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@81 (line 68)
+                      ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x000001e6a3ad1e88: 1f36 07e8 
+
+  0x000001e6a3ad1e8c: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop }
+                      ;*invokevirtual hasConfigFlags {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@91 (line 69)
+  0x000001e6a3ad1e8c: f01f 3607 
+
+  0x000001e6a3ad1e90: ;   {metadata({method} {0x000001e7025e3cb0} 'hasConfigFlags' '(I)Z' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1e90: 49ba a83c | 5e02 e701 | 0000 4c89 | 5424 0848 | c704 24ff 
+
+  0x000001e6a3ad1ea4: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1ea4: ffff ffe8 
+
+  0x000001e6a3ad1ea8: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGuiIO::hasConfigFlags@-1 (line 58)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@91 (line 69)
+  0x000001e6a3ad1ea8: d47f 3607 | e921 faff 
+
+  0x000001e6a3ad1eb0: ;   {metadata({method} {0x000001e7025e39b8} 'getConfigFlags' '()I' in 'imgui/ImGuiIO')}
+  0x000001e6a3ad1eb0: ff49 bab0 | 395e 02e7 | 0100 004c | 8954 2408 | 48c7 0424 | ffff ffff 
+
+  0x000001e6a3ad1ec8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1ec8: e8b3 7f36 
+
+  0x000001e6a3ad1ecc: ; ImmutableOopMap {rdx=Oop rsi=Oop [128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGuiIO::getConfigFlags@-1 (line 30)
+                      ; - imgui.ImGuiIO::hasConfigFlags@1 (line 58)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@91 (line 69)
+  0x000001e6a3ad1ecc: 07e9 3cfa 
+
+  0x000001e6a3ad1ed0: ;   {metadata({method} {0x000001e70266c940} 'updatePlatformWindows' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1ed0: ffff 49ba | 38c9 6602 | e701 0000 | 4c89 5424 | 0848 c704 | 24ff ffff 
+
+  0x000001e6a3ad1ee8: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1ee8: ffe8 927f 
+
+  0x000001e6a3ad1eec: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::updatePlatformWindows@-1 (line 13525)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@97 (line 70)
+  0x000001e6a3ad1eec: 3607 e9fd 
+
+  0x000001e6a3ad1ef0: ;   {metadata({method} {0x000001e70266ca80} 'renderPlatformWindowsDefault' '()V' in 'imgui/ImGui')}
+  0x000001e6a3ad1ef0: faff ff49 | ba78 ca66 | 02e7 0100 | 004c 8954 | 2408 48c7 | 0424 ffff 
+
+  0x000001e6a3ad1f08: ;   {runtime_call counter_overflow Runtime1 stub}
+  0x000001e6a3ad1f08: ffff e871 
+
+  0x000001e6a3ad1f0c: ; ImmutableOopMap {[128]=Oop }
+                      ;*synchronization entry
+                      ; - imgui.ImGui::renderPlatformWindowsDefault@-1 (line 13537)
+                      ; - org.example.Hellena.core.util.ImGuiLayer::update@100 (line 71)
+  0x000001e6a3ad1f0c: 7f36 07e9 | 39fb ffff 
+
+  0x000001e6a3ad1f14: ;   {internal_word}
+  0x000001e6a3ad1f14: 49ba a41a | ada3 e601 | 0000 4d89 | 9760 0400 
+
+  0x000001e6a3ad1f24: ;   {runtime_call SafepointBlob}
+  0x000001e6a3ad1f24: 00e9 d637 | 2a07 498b | 87f8 0400 | 0049 c787 | f804 0000 | 0000 0000 | 49c7 8700 | 0500 0000 
+  0x000001e6a3ad1f44: 0000 0048 | 81c4 b000 
+
+  0x000001e6a3ad1f4c: ;   {runtime_call unwind_exception Runtime1 stub}
+  0x000001e6a3ad1f4c: 0000 5de9 | 2c10 3607 | f4f4 f4f4 
+[Stub Code]
+  0x000001e6a3ad1f58: ;   {no_reloc}
+  0x000001e6a3ad1f58: 0f1f 4400 
+
+  0x000001e6a3ad1f5c: ;   {static_stub}
+  0x000001e6a3ad1f5c: 0048 bb70 | a65d 02e7 
+
+  0x000001e6a3ad1f64: ;   {runtime_call I2C/C2I adapters}
+  0x000001e6a3ad1f64: 0100 00e9 | f714 2a07 
+
+  0x000001e6a3ad1f6c: ;   {static_stub}
+  0x000001e6a3ad1f6c: 9048 bb80 | 385c 02e7 
+
+  0x000001e6a3ad1f74: ;   {runtime_call I2C/C2I adapters}
+  0x000001e6a3ad1f74: 0100 00e9 | e714 2a07 
+
+  0x000001e6a3ad1f7c: ;   {static_stub}
+  0x000001e6a3ad1f7c: 9048 bb00 | 0000 0000 
+
+  0x000001e6a3ad1f84: ;   {runtime_call nmethod}
+  0x000001e6a3ad1f84: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad1f8c: ;   {static_stub}
+  0x000001e6a3ad1f8c: 9048 bb00 | 0000 0000 
+
+  0x000001e6a3ad1f94: ;   {runtime_call nmethod}
+  0x000001e6a3ad1f94: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad1f9c: ;   {static_stub}
+  0x000001e6a3ad1f9c: 9048 bb00 | 0000 0000 
+
+  0x000001e6a3ad1fa4: ;   {runtime_call nmethod}
+  0x000001e6a3ad1fa4: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad1fac: ;   {static_stub}
+  0x000001e6a3ad1fac: 9048 bb00 | 0000 0000 
+
+  0x000001e6a3ad1fb4: ;   {runtime_call nmethod}
+  0x000001e6a3ad1fb4: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad1fbc: ;   {static_stub}
+  0x000001e6a3ad1fbc: 48bb 0000 | 0000 0000 
+
+  0x000001e6a3ad1fc4: ;   {runtime_call nmethod}
+  0x000001e6a3ad1fc4: 0000 e9fb 
+
+  0x000001e6a3ad1fc8: ;   {static_stub}
+  0x000001e6a3ad1fc8: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x000001e6a3ad1fd4: ;   {runtime_call nmethod}
+  0x000001e6a3ad1fd4: 00e9 fbff 
+
+  0x000001e6a3ad1fd8: ;   {static_stub}
+  0x000001e6a3ad1fd8: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x000001e6a3ad1fe4: ;   {runtime_call nmethod}
+  0x000001e6a3ad1fe4: e9fb ffff 
+
+  0x000001e6a3ad1fe8: ;   {static_stub}
+  0x000001e6a3ad1fe8: ff48 bb00 | 0000 0000 
+
+  0x000001e6a3ad1ff0: ;   {runtime_call nmethod}
+  0x000001e6a3ad1ff0: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad1ff8: ;   {static_stub}
+  0x000001e6a3ad1ff8: 48bb 0000 | 0000 0000 
+
+  0x000001e6a3ad2000: ;   {runtime_call nmethod}
+  0x000001e6a3ad2000: 0000 e9fb 
+
+  0x000001e6a3ad2004: ;   {static_stub}
+  0x000001e6a3ad2004: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x000001e6a3ad2010: ;   {runtime_call nmethod}
+  0x000001e6a3ad2010: 00e9 fbff 
+
+  0x000001e6a3ad2014: ;   {static_stub}
+  0x000001e6a3ad2014: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x000001e6a3ad2020: ;   {runtime_call nmethod}
+  0x000001e6a3ad2020: e9fb ffff 
+
+  0x000001e6a3ad2024: ;   {static_stub}
+  0x000001e6a3ad2024: ff48 bb00 | 0000 0000 
+
+  0x000001e6a3ad202c: ;   {runtime_call nmethod}
+  0x000001e6a3ad202c: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad2034: ;   {static_stub}
+  0x000001e6a3ad2034: 48bb 40af | 5e02 e701 
+
+  0x000001e6a3ad203c: ;   {runtime_call I2C/C2I adapters}
+  0x000001e6a3ad203c: 0000 e9a4 
+
+  0x000001e6a3ad2040: ;   {static_stub}
+  0x000001e6a3ad2040: 212a 0748 | bb00 0000 | 0000 0000 
+
+  0x000001e6a3ad204c: ;   {runtime_call nmethod}
+  0x000001e6a3ad204c: 00e9 fbff 
+
+  0x000001e6a3ad2050: ;   {static_stub}
+  0x000001e6a3ad2050: ffff 48bb | d842 5e02 | e701 0000 
+
+  0x000001e6a3ad205c: ;   {runtime_call I2C/C2I adapters}
+  0x000001e6a3ad205c: e906 1d2a 
+
+  0x000001e6a3ad2060: ;   {static_stub}
+  0x000001e6a3ad2060: 0748 bb00 | 0000 0000 
+
+  0x000001e6a3ad2068: ;   {runtime_call nmethod}
+  0x000001e6a3ad2068: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad2070: ;   {static_stub}
+  0x000001e6a3ad2070: 48bb 0000 | 0000 0000 
+
+  0x000001e6a3ad2078: ;   {runtime_call nmethod}
+  0x000001e6a3ad2078: 0000 e9fb 
+
+  0x000001e6a3ad207c: ;   {static_stub}
+  0x000001e6a3ad207c: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x000001e6a3ad2088: ;   {runtime_call nmethod}
+  0x000001e6a3ad2088: 00e9 fbff 
+
+  0x000001e6a3ad208c: ;   {static_stub}
+  0x000001e6a3ad208c: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x000001e6a3ad2098: ;   {runtime_call nmethod}
+  0x000001e6a3ad2098: e9fb ffff 
+
+  0x000001e6a3ad209c: ;   {static_stub}
+  0x000001e6a3ad209c: ff48 bb00 | 0000 0000 
+
+  0x000001e6a3ad20a4: ;   {runtime_call nmethod}
+  0x000001e6a3ad20a4: 0000 00e9 | fbff ffff 
+
+  0x000001e6a3ad20ac: ;   {static_stub}
+  0x000001e6a3ad20ac: 48bb 0000 | 0000 0000 
+
+  0x000001e6a3ad20b4: ;   {runtime_call nmethod}
+  0x000001e6a3ad20b4: 0000 e9fb 
+
+  0x000001e6a3ad20b8: ;   {static_stub}
+  0x000001e6a3ad20b8: ffff ff48 | bb48 cc66 | 02e7 0100 
+
+  0x000001e6a3ad20c4: ;   {runtime_call I2C/C2I adapters}
+  0x000001e6a3ad20c4: 00e9 15be 
+
+  0x000001e6a3ad20c8: ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x000001e6a3ad20c8: 2907 e8b1 
+
+  0x000001e6a3ad20cc: ;   {external_word}
+  0x000001e6a3ad20cc: 4a36 0748 | b990 7f98 | c5fd 7f00 | 0048 83e4 
+
+  0x000001e6a3ad20dc: ;   {runtime_call}
+  0x000001e6a3ad20dc: f048 b8e0 | 445b c5fd | 7f00 00ff 
+
+  0x000001e6a3ad20e8: ;   {section_word}
+  0x000001e6a3ad20e8: d0f4 49ba | ea20 ada3 | e601 0000 
+
+  0x000001e6a3ad20f4: ;   {runtime_call DeoptimizationBlob}
+  0x000001e6a3ad20f4: 4152 e9a5 | 282a 07f4 | f4f4 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001e70a30df40, length=11, elements={
+0x000001e69b1f73f0, 0x000001e6bd52d6e0, 0x000001e6bd52e330, 0x000001e6bd5359f0,
+0x000001e6bd5368d0, 0x000001e6bd53db20, 0x000001e6bd537ac0, 0x000001e6bd543ee0,
+0x000001e6bd545240, 0x000001e6c07429c0, 0x000001e6c074f410
+}
+
+Java Threads: ( => current thread )
+=>0x000001e69b1f73f0 JavaThread "main"                              [_thread_in_native, id=31944, stack(0x000000c94e600000,0x000000c94e700000) (1024K)]
+  0x000001e6bd52d6e0 JavaThread "Reference Handler"          daemon [_thread_blocked, id=23040, stack(0x000000c94ee00000,0x000000c94ef00000) (1024K)]
+  0x000001e6bd52e330 JavaThread "Finalizer"                  daemon [_thread_blocked, id=43936, stack(0x000000c94ef00000,0x000000c94f000000) (1024K)]
+  0x000001e6bd5359f0 JavaThread "Signal Dispatcher"          daemon [_thread_blocked, id=40156, stack(0x000000c94f000000,0x000000c94f100000) (1024K)]
+  0x000001e6bd5368d0 JavaThread "Attach Listener"            daemon [_thread_blocked, id=34532, stack(0x000000c94f100000,0x000000c94f200000) (1024K)]
+  0x000001e6bd53db20 JavaThread "Service Thread"             daemon [_thread_blocked, id=61420, stack(0x000000c94f200000,0x000000c94f300000) (1024K)]
+  0x000001e6bd537ac0 JavaThread "Monitor Deflation Thread"   daemon [_thread_blocked, id=59288, stack(0x000000c94f300000,0x000000c94f400000) (1024K)]
+  0x000001e6bd543ee0 JavaThread "C2 CompilerThread0"         daemon [_thread_blocked, id=48196, stack(0x000000c94f400000,0x000000c94f500000) (1024K)]
+  0x000001e6bd545240 JavaThread "C1 CompilerThread0"         daemon [_thread_blocked, id=27528, stack(0x000000c94f500000,0x000000c94f600000) (1024K)]
+  0x000001e6c07429c0 JavaThread "Notification Thread"        daemon [_thread_blocked, id=49488, stack(0x000000c94f800000,0x000000c94f900000) (1024K)]
+  0x000001e6c074f410 JavaThread "Common-Cleaner"             daemon [_thread_blocked, id=58072, stack(0x000000c94f900000,0x000000c94fa00000) (1024K)]
+Total: 11
+
+Other Threads:
+  0x000001e6bd50ffe0 VMThread "VM Thread"                           [id=45460, stack(0x000000c94ed00000,0x000000c94ee00000) (1024K)]
+  0x000001e6c05d09d0 WatcherThread "VM Periodic Task Thread"        [id=58308, stack(0x000000c94ec00000,0x000000c94ed00000) (1024K)]
+  0x000001e69b29e090 WorkerThread "GC Thread#0"                     [id=43848, stack(0x000000c94e700000,0x000000c94e800000) (1024K)]
+  0x000001e6bd374da0 ConcurrentGCThread "G1 Main Marker"            [id=16308, stack(0x000000c94e800000,0x000000c94e900000) (1024K)]
+  0x000001e6bd376320 WorkerThread "G1 Conc#0"                       [id=58728, stack(0x000000c94e900000,0x000000c94ea00000) (1024K)]
+  0x000001e6bd44a900 ConcurrentGCThread "G1 Refine#0"               [id=59748, stack(0x000000c94ea00000,0x000000c94eb00000) (1024K)]
+  0x000001e6bd44b380 ConcurrentGCThread "G1 Service"                [id=34420, stack(0x000000c94eb00000,0x000000c94ec00000) (1024K)]
+Total: 7
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000604000000, size: 8128 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x000001e6c1000000-0x000001e6c1c80000-0x000001e6c1c80000), size 13107200, SharedBaseAddress: 0x000001e6c1000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x000001e6c2000000-0x000001e702000000, reserved size: 1073741824
+Narrow klass base: 0x000001e6c1000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 32 size 80 Howl #buckets 8 coarsen threshold 7372 Howl Bitmap #cards 1024 size 144 coarsen threshold 921 Card regions per heap region 1 cards per card region 8192
+ CPUs: 20 total, 20 available
+ Memory: 32509M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 4M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 508M
+ Heap Max Capacity: 8128M
+ Pre-touch: Disabled
+ Parallel Workers: 15
+ Concurrent Workers: 4
+ Concurrent Refinement Workers: 15
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 520192K, used 16384K [0x0000000604000000, 0x0000000800000000)
+  region size 4096K, 5 young (20480K), 0 survivors (0K)
+ Metaspace       used 7706K, committed 7872K, reserved 1114112K
+  class space    used 359K, committed 448K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+|   0|0x0000000604000000, 0x0000000604000000, 0x0000000604400000|  0%| F|  |TAMS 0x0000000604000000| PB 0x0000000604000000| Untracked 
+|   1|0x0000000604400000, 0x0000000604400000, 0x0000000604800000|  0%| F|  |TAMS 0x0000000604400000| PB 0x0000000604400000| Untracked 
+|   2|0x0000000604800000, 0x0000000604800000, 0x0000000604c00000|  0%| F|  |TAMS 0x0000000604800000| PB 0x0000000604800000| Untracked 
+|   3|0x0000000604c00000, 0x0000000604c00000, 0x0000000605000000|  0%| F|  |TAMS 0x0000000604c00000| PB 0x0000000604c00000| Untracked 
+|   4|0x0000000605000000, 0x0000000605000000, 0x0000000605400000|  0%| F|  |TAMS 0x0000000605000000| PB 0x0000000605000000| Untracked 
+|   5|0x0000000605400000, 0x0000000605400000, 0x0000000605800000|  0%| F|  |TAMS 0x0000000605400000| PB 0x0000000605400000| Untracked 
+|   6|0x0000000605800000, 0x0000000605800000, 0x0000000605c00000|  0%| F|  |TAMS 0x0000000605800000| PB 0x0000000605800000| Untracked 
+|   7|0x0000000605c00000, 0x0000000605c00000, 0x0000000606000000|  0%| F|  |TAMS 0x0000000605c00000| PB 0x0000000605c00000| Untracked 
+|   8|0x0000000606000000, 0x0000000606000000, 0x0000000606400000|  0%| F|  |TAMS 0x0000000606000000| PB 0x0000000606000000| Untracked 
+|   9|0x0000000606400000, 0x0000000606400000, 0x0000000606800000|  0%| F|  |TAMS 0x0000000606400000| PB 0x0000000606400000| Untracked 
+|  10|0x0000000606800000, 0x0000000606800000, 0x0000000606c00000|  0%| F|  |TAMS 0x0000000606800000| PB 0x0000000606800000| Untracked 
+|  11|0x0000000606c00000, 0x0000000606c00000, 0x0000000607000000|  0%| F|  |TAMS 0x0000000606c00000| PB 0x0000000606c00000| Untracked 
+|  12|0x0000000607000000, 0x0000000607000000, 0x0000000607400000|  0%| F|  |TAMS 0x0000000607000000| PB 0x0000000607000000| Untracked 
+|  13|0x0000000607400000, 0x0000000607400000, 0x0000000607800000|  0%| F|  |TAMS 0x0000000607400000| PB 0x0000000607400000| Untracked 
+|  14|0x0000000607800000, 0x0000000607800000, 0x0000000607c00000|  0%| F|  |TAMS 0x0000000607800000| PB 0x0000000607800000| Untracked 
+|  15|0x0000000607c00000, 0x0000000607c00000, 0x0000000608000000|  0%| F|  |TAMS 0x0000000607c00000| PB 0x0000000607c00000| Untracked 
+|  16|0x0000000608000000, 0x0000000608000000, 0x0000000608400000|  0%| F|  |TAMS 0x0000000608000000| PB 0x0000000608000000| Untracked 
+|  17|0x0000000608400000, 0x0000000608400000, 0x0000000608800000|  0%| F|  |TAMS 0x0000000608400000| PB 0x0000000608400000| Untracked 
+|  18|0x0000000608800000, 0x0000000608800000, 0x0000000608c00000|  0%| F|  |TAMS 0x0000000608800000| PB 0x0000000608800000| Untracked 
+|  19|0x0000000608c00000, 0x0000000608c00000, 0x0000000609000000|  0%| F|  |TAMS 0x0000000608c00000| PB 0x0000000608c00000| Untracked 
+|  20|0x0000000609000000, 0x0000000609000000, 0x0000000609400000|  0%| F|  |TAMS 0x0000000609000000| PB 0x0000000609000000| Untracked 
+|  21|0x0000000609400000, 0x0000000609400000, 0x0000000609800000|  0%| F|  |TAMS 0x0000000609400000| PB 0x0000000609400000| Untracked 
+|  22|0x0000000609800000, 0x0000000609800000, 0x0000000609c00000|  0%| F|  |TAMS 0x0000000609800000| PB 0x0000000609800000| Untracked 
+|  23|0x0000000609c00000, 0x0000000609c00000, 0x000000060a000000|  0%| F|  |TAMS 0x0000000609c00000| PB 0x0000000609c00000| Untracked 
+|  24|0x000000060a000000, 0x000000060a000000, 0x000000060a400000|  0%| F|  |TAMS 0x000000060a000000| PB 0x000000060a000000| Untracked 
+|  25|0x000000060a400000, 0x000000060a400000, 0x000000060a800000|  0%| F|  |TAMS 0x000000060a400000| PB 0x000000060a400000| Untracked 
+|  26|0x000000060a800000, 0x000000060a800000, 0x000000060ac00000|  0%| F|  |TAMS 0x000000060a800000| PB 0x000000060a800000| Untracked 
+|  27|0x000000060ac00000, 0x000000060ac00000, 0x000000060b000000|  0%| F|  |TAMS 0x000000060ac00000| PB 0x000000060ac00000| Untracked 
+|  28|0x000000060b000000, 0x000000060b000000, 0x000000060b400000|  0%| F|  |TAMS 0x000000060b000000| PB 0x000000060b000000| Untracked 
+|  29|0x000000060b400000, 0x000000060b400000, 0x000000060b800000|  0%| F|  |TAMS 0x000000060b400000| PB 0x000000060b400000| Untracked 
+|  30|0x000000060b800000, 0x000000060b800000, 0x000000060bc00000|  0%| F|  |TAMS 0x000000060b800000| PB 0x000000060b800000| Untracked 
+|  31|0x000000060bc00000, 0x000000060bc00000, 0x000000060c000000|  0%| F|  |TAMS 0x000000060bc00000| PB 0x000000060bc00000| Untracked 
+|  32|0x000000060c000000, 0x000000060c000000, 0x000000060c400000|  0%| F|  |TAMS 0x000000060c000000| PB 0x000000060c000000| Untracked 
+|  33|0x000000060c400000, 0x000000060c400000, 0x000000060c800000|  0%| F|  |TAMS 0x000000060c400000| PB 0x000000060c400000| Untracked 
+|  34|0x000000060c800000, 0x000000060c800000, 0x000000060cc00000|  0%| F|  |TAMS 0x000000060c800000| PB 0x000000060c800000| Untracked 
+|  35|0x000000060cc00000, 0x000000060cc00000, 0x000000060d000000|  0%| F|  |TAMS 0x000000060cc00000| PB 0x000000060cc00000| Untracked 
+|  36|0x000000060d000000, 0x000000060d000000, 0x000000060d400000|  0%| F|  |TAMS 0x000000060d000000| PB 0x000000060d000000| Untracked 
+|  37|0x000000060d400000, 0x000000060d400000, 0x000000060d800000|  0%| F|  |TAMS 0x000000060d400000| PB 0x000000060d400000| Untracked 
+|  38|0x000000060d800000, 0x000000060d800000, 0x000000060dc00000|  0%| F|  |TAMS 0x000000060d800000| PB 0x000000060d800000| Untracked 
+|  39|0x000000060dc00000, 0x000000060dc00000, 0x000000060e000000|  0%| F|  |TAMS 0x000000060dc00000| PB 0x000000060dc00000| Untracked 
+|  40|0x000000060e000000, 0x000000060e000000, 0x000000060e400000|  0%| F|  |TAMS 0x000000060e000000| PB 0x000000060e000000| Untracked 
+|  41|0x000000060e400000, 0x000000060e400000, 0x000000060e800000|  0%| F|  |TAMS 0x000000060e400000| PB 0x000000060e400000| Untracked 
+|  42|0x000000060e800000, 0x000000060e800000, 0x000000060ec00000|  0%| F|  |TAMS 0x000000060e800000| PB 0x000000060e800000| Untracked 
+|  43|0x000000060ec00000, 0x000000060ec00000, 0x000000060f000000|  0%| F|  |TAMS 0x000000060ec00000| PB 0x000000060ec00000| Untracked 
+|  44|0x000000060f000000, 0x000000060f000000, 0x000000060f400000|  0%| F|  |TAMS 0x000000060f000000| PB 0x000000060f000000| Untracked 
+|  45|0x000000060f400000, 0x000000060f400000, 0x000000060f800000|  0%| F|  |TAMS 0x000000060f400000| PB 0x000000060f400000| Untracked 
+|  46|0x000000060f800000, 0x000000060f800000, 0x000000060fc00000|  0%| F|  |TAMS 0x000000060f800000| PB 0x000000060f800000| Untracked 
+|  47|0x000000060fc00000, 0x000000060fc00000, 0x0000000610000000|  0%| F|  |TAMS 0x000000060fc00000| PB 0x000000060fc00000| Untracked 
+|  48|0x0000000610000000, 0x0000000610000000, 0x0000000610400000|  0%| F|  |TAMS 0x0000000610000000| PB 0x0000000610000000| Untracked 
+|  49|0x0000000610400000, 0x0000000610400000, 0x0000000610800000|  0%| F|  |TAMS 0x0000000610400000| PB 0x0000000610400000| Untracked 
+|  50|0x0000000610800000, 0x0000000610800000, 0x0000000610c00000|  0%| F|  |TAMS 0x0000000610800000| PB 0x0000000610800000| Untracked 
+|  51|0x0000000610c00000, 0x0000000610c00000, 0x0000000611000000|  0%| F|  |TAMS 0x0000000610c00000| PB 0x0000000610c00000| Untracked 
+|  52|0x0000000611000000, 0x0000000611000000, 0x0000000611400000|  0%| F|  |TAMS 0x0000000611000000| PB 0x0000000611000000| Untracked 
+|  53|0x0000000611400000, 0x0000000611400000, 0x0000000611800000|  0%| F|  |TAMS 0x0000000611400000| PB 0x0000000611400000| Untracked 
+|  54|0x0000000611800000, 0x0000000611800000, 0x0000000611c00000|  0%| F|  |TAMS 0x0000000611800000| PB 0x0000000611800000| Untracked 
+|  55|0x0000000611c00000, 0x0000000611c00000, 0x0000000612000000|  0%| F|  |TAMS 0x0000000611c00000| PB 0x0000000611c00000| Untracked 
+|  56|0x0000000612000000, 0x0000000612000000, 0x0000000612400000|  0%| F|  |TAMS 0x0000000612000000| PB 0x0000000612000000| Untracked 
+|  57|0x0000000612400000, 0x0000000612400000, 0x0000000612800000|  0%| F|  |TAMS 0x0000000612400000| PB 0x0000000612400000| Untracked 
+|  58|0x0000000612800000, 0x0000000612800000, 0x0000000612c00000|  0%| F|  |TAMS 0x0000000612800000| PB 0x0000000612800000| Untracked 
+|  59|0x0000000612c00000, 0x0000000612c00000, 0x0000000613000000|  0%| F|  |TAMS 0x0000000612c00000| PB 0x0000000612c00000| Untracked 
+|  60|0x0000000613000000, 0x0000000613000000, 0x0000000613400000|  0%| F|  |TAMS 0x0000000613000000| PB 0x0000000613000000| Untracked 
+|  61|0x0000000613400000, 0x0000000613400000, 0x0000000613800000|  0%| F|  |TAMS 0x0000000613400000| PB 0x0000000613400000| Untracked 
+|  62|0x0000000613800000, 0x0000000613800000, 0x0000000613c00000|  0%| F|  |TAMS 0x0000000613800000| PB 0x0000000613800000| Untracked 
+|  63|0x0000000613c00000, 0x0000000613c00000, 0x0000000614000000|  0%| F|  |TAMS 0x0000000613c00000| PB 0x0000000613c00000| Untracked 
+|  64|0x0000000614000000, 0x0000000614000000, 0x0000000614400000|  0%| F|  |TAMS 0x0000000614000000| PB 0x0000000614000000| Untracked 
+|  65|0x0000000614400000, 0x0000000614400000, 0x0000000614800000|  0%| F|  |TAMS 0x0000000614400000| PB 0x0000000614400000| Untracked 
+|  66|0x0000000614800000, 0x0000000614800000, 0x0000000614c00000|  0%| F|  |TAMS 0x0000000614800000| PB 0x0000000614800000| Untracked 
+|  67|0x0000000614c00000, 0x0000000614c00000, 0x0000000615000000|  0%| F|  |TAMS 0x0000000614c00000| PB 0x0000000614c00000| Untracked 
+|  68|0x0000000615000000, 0x0000000615000000, 0x0000000615400000|  0%| F|  |TAMS 0x0000000615000000| PB 0x0000000615000000| Untracked 
+|  69|0x0000000615400000, 0x0000000615400000, 0x0000000615800000|  0%| F|  |TAMS 0x0000000615400000| PB 0x0000000615400000| Untracked 
+|  70|0x0000000615800000, 0x0000000615800000, 0x0000000615c00000|  0%| F|  |TAMS 0x0000000615800000| PB 0x0000000615800000| Untracked 
+|  71|0x0000000615c00000, 0x0000000615c00000, 0x0000000616000000|  0%| F|  |TAMS 0x0000000615c00000| PB 0x0000000615c00000| Untracked 
+|  72|0x0000000616000000, 0x0000000616000000, 0x0000000616400000|  0%| F|  |TAMS 0x0000000616000000| PB 0x0000000616000000| Untracked 
+|  73|0x0000000616400000, 0x0000000616400000, 0x0000000616800000|  0%| F|  |TAMS 0x0000000616400000| PB 0x0000000616400000| Untracked 
+|  74|0x0000000616800000, 0x0000000616800000, 0x0000000616c00000|  0%| F|  |TAMS 0x0000000616800000| PB 0x0000000616800000| Untracked 
+|  75|0x0000000616c00000, 0x0000000616c00000, 0x0000000617000000|  0%| F|  |TAMS 0x0000000616c00000| PB 0x0000000616c00000| Untracked 
+|  76|0x0000000617000000, 0x0000000617000000, 0x0000000617400000|  0%| F|  |TAMS 0x0000000617000000| PB 0x0000000617000000| Untracked 
+|  77|0x0000000617400000, 0x0000000617400000, 0x0000000617800000|  0%| F|  |TAMS 0x0000000617400000| PB 0x0000000617400000| Untracked 
+|  78|0x0000000617800000, 0x0000000617800000, 0x0000000617c00000|  0%| F|  |TAMS 0x0000000617800000| PB 0x0000000617800000| Untracked 
+|  79|0x0000000617c00000, 0x0000000617c00000, 0x0000000618000000|  0%| F|  |TAMS 0x0000000617c00000| PB 0x0000000617c00000| Untracked 
+|  80|0x0000000618000000, 0x0000000618000000, 0x0000000618400000|  0%| F|  |TAMS 0x0000000618000000| PB 0x0000000618000000| Untracked 
+|  81|0x0000000618400000, 0x0000000618400000, 0x0000000618800000|  0%| F|  |TAMS 0x0000000618400000| PB 0x0000000618400000| Untracked 
+|  82|0x0000000618800000, 0x0000000618800000, 0x0000000618c00000|  0%| F|  |TAMS 0x0000000618800000| PB 0x0000000618800000| Untracked 
+|  83|0x0000000618c00000, 0x0000000618c00000, 0x0000000619000000|  0%| F|  |TAMS 0x0000000618c00000| PB 0x0000000618c00000| Untracked 
+|  84|0x0000000619000000, 0x0000000619000000, 0x0000000619400000|  0%| F|  |TAMS 0x0000000619000000| PB 0x0000000619000000| Untracked 
+|  85|0x0000000619400000, 0x0000000619400000, 0x0000000619800000|  0%| F|  |TAMS 0x0000000619400000| PB 0x0000000619400000| Untracked 
+|  86|0x0000000619800000, 0x0000000619800000, 0x0000000619c00000|  0%| F|  |TAMS 0x0000000619800000| PB 0x0000000619800000| Untracked 
+|  87|0x0000000619c00000, 0x0000000619c00000, 0x000000061a000000|  0%| F|  |TAMS 0x0000000619c00000| PB 0x0000000619c00000| Untracked 
+|  88|0x000000061a000000, 0x000000061a000000, 0x000000061a400000|  0%| F|  |TAMS 0x000000061a000000| PB 0x000000061a000000| Untracked 
+|  89|0x000000061a400000, 0x000000061a400000, 0x000000061a800000|  0%| F|  |TAMS 0x000000061a400000| PB 0x000000061a400000| Untracked 
+|  90|0x000000061a800000, 0x000000061a800000, 0x000000061ac00000|  0%| F|  |TAMS 0x000000061a800000| PB 0x000000061a800000| Untracked 
+|  91|0x000000061ac00000, 0x000000061ac00000, 0x000000061b000000|  0%| F|  |TAMS 0x000000061ac00000| PB 0x000000061ac00000| Untracked 
+|  92|0x000000061b000000, 0x000000061b000000, 0x000000061b400000|  0%| F|  |TAMS 0x000000061b000000| PB 0x000000061b000000| Untracked 
+|  93|0x000000061b400000, 0x000000061b400000, 0x000000061b800000|  0%| F|  |TAMS 0x000000061b400000| PB 0x000000061b400000| Untracked 
+|  94|0x000000061b800000, 0x000000061b800000, 0x000000061bc00000|  0%| F|  |TAMS 0x000000061b800000| PB 0x000000061b800000| Untracked 
+|  95|0x000000061bc00000, 0x000000061bc00000, 0x000000061c000000|  0%| F|  |TAMS 0x000000061bc00000| PB 0x000000061bc00000| Untracked 
+|  96|0x000000061c000000, 0x000000061c000000, 0x000000061c400000|  0%| F|  |TAMS 0x000000061c000000| PB 0x000000061c000000| Untracked 
+|  97|0x000000061c400000, 0x000000061c400000, 0x000000061c800000|  0%| F|  |TAMS 0x000000061c400000| PB 0x000000061c400000| Untracked 
+|  98|0x000000061c800000, 0x000000061c800000, 0x000000061cc00000|  0%| F|  |TAMS 0x000000061c800000| PB 0x000000061c800000| Untracked 
+|  99|0x000000061cc00000, 0x000000061cc00000, 0x000000061d000000|  0%| F|  |TAMS 0x000000061cc00000| PB 0x000000061cc00000| Untracked 
+| 100|0x000000061d000000, 0x000000061d000000, 0x000000061d400000|  0%| F|  |TAMS 0x000000061d000000| PB 0x000000061d000000| Untracked 
+| 101|0x000000061d400000, 0x000000061d400000, 0x000000061d800000|  0%| F|  |TAMS 0x000000061d400000| PB 0x000000061d400000| Untracked 
+| 102|0x000000061d800000, 0x000000061d800000, 0x000000061dc00000|  0%| F|  |TAMS 0x000000061d800000| PB 0x000000061d800000| Untracked 
+| 103|0x000000061dc00000, 0x000000061dc00000, 0x000000061e000000|  0%| F|  |TAMS 0x000000061dc00000| PB 0x000000061dc00000| Untracked 
+| 104|0x000000061e000000, 0x000000061e000000, 0x000000061e400000|  0%| F|  |TAMS 0x000000061e000000| PB 0x000000061e000000| Untracked 
+| 105|0x000000061e400000, 0x000000061e400000, 0x000000061e800000|  0%| F|  |TAMS 0x000000061e400000| PB 0x000000061e400000| Untracked 
+| 106|0x000000061e800000, 0x000000061e800000, 0x000000061ec00000|  0%| F|  |TAMS 0x000000061e800000| PB 0x000000061e800000| Untracked 
+| 107|0x000000061ec00000, 0x000000061ec00000, 0x000000061f000000|  0%| F|  |TAMS 0x000000061ec00000| PB 0x000000061ec00000| Untracked 
+| 108|0x000000061f000000, 0x000000061f000000, 0x000000061f400000|  0%| F|  |TAMS 0x000000061f000000| PB 0x000000061f000000| Untracked 
+| 109|0x000000061f400000, 0x000000061f400000, 0x000000061f800000|  0%| F|  |TAMS 0x000000061f400000| PB 0x000000061f400000| Untracked 
+| 110|0x000000061f800000, 0x000000061f800000, 0x000000061fc00000|  0%| F|  |TAMS 0x000000061f800000| PB 0x000000061f800000| Untracked 
+| 111|0x000000061fc00000, 0x000000061fc00000, 0x0000000620000000|  0%| F|  |TAMS 0x000000061fc00000| PB 0x000000061fc00000| Untracked 
+| 112|0x0000000620000000, 0x0000000620000000, 0x0000000620400000|  0%| F|  |TAMS 0x0000000620000000| PB 0x0000000620000000| Untracked 
+| 113|0x0000000620400000, 0x0000000620400000, 0x0000000620800000|  0%| F|  |TAMS 0x0000000620400000| PB 0x0000000620400000| Untracked 
+| 114|0x0000000620800000, 0x0000000620800000, 0x0000000620c00000|  0%| F|  |TAMS 0x0000000620800000| PB 0x0000000620800000| Untracked 
+| 115|0x0000000620c00000, 0x0000000620c00000, 0x0000000621000000|  0%| F|  |TAMS 0x0000000620c00000| PB 0x0000000620c00000| Untracked 
+| 116|0x0000000621000000, 0x0000000621000000, 0x0000000621400000|  0%| F|  |TAMS 0x0000000621000000| PB 0x0000000621000000| Untracked 
+| 117|0x0000000621400000, 0x0000000621400000, 0x0000000621800000|  0%| F|  |TAMS 0x0000000621400000| PB 0x0000000621400000| Untracked 
+| 118|0x0000000621800000, 0x0000000621800000, 0x0000000621c00000|  0%| F|  |TAMS 0x0000000621800000| PB 0x0000000621800000| Untracked 
+| 119|0x0000000621c00000, 0x0000000621c00000, 0x0000000622000000|  0%| F|  |TAMS 0x0000000621c00000| PB 0x0000000621c00000| Untracked 
+| 120|0x0000000622000000, 0x0000000622000000, 0x0000000622400000|  0%| F|  |TAMS 0x0000000622000000| PB 0x0000000622000000| Untracked 
+| 121|0x0000000622400000, 0x0000000622400000, 0x0000000622800000|  0%| F|  |TAMS 0x0000000622400000| PB 0x0000000622400000| Untracked 
+| 122|0x0000000622800000, 0x0000000622a847e8, 0x0000000622c00000| 62%| E|  |TAMS 0x0000000622800000| PB 0x0000000622800000| Complete 
+| 123|0x0000000622c00000, 0x0000000623000000, 0x0000000623000000|100%| E|CS|TAMS 0x0000000622c00000| PB 0x0000000622c00000| Complete 
+| 124|0x0000000623000000, 0x0000000623400000, 0x0000000623400000|100%| E|CS|TAMS 0x0000000623000000| PB 0x0000000623000000| Complete 
+| 125|0x0000000623400000, 0x0000000623800000, 0x0000000623800000|100%| E|CS|TAMS 0x0000000623400000| PB 0x0000000623400000| Complete 
+| 126|0x0000000623800000, 0x0000000623c00000, 0x0000000623c00000|100%| E|CS|TAMS 0x0000000623800000| PB 0x0000000623800000| Complete 
+
+Card table byte_map: [0x000001e6b4370000,0x000001e6b5350000] _byte_map_base: 0x000001e6b1350000
+
+Marking Bits: (CMBitMap*) 0x000001e69b29e6a0
+ Bits: [0x000001e6b5350000, 0x000001e6bd250000)
+
+Polling page: 0x000001e698d40000
+
+Metaspace:
+
+Usage:
+  Non-class:      7.17 MB used.
+      Class:    359.37 KB used.
+       Both:      7.53 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,       7.25 MB ( 11%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,     448.00 KB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,       7.69 MB ( <1%) committed. 
+
+Chunk freelists:
+   Non-Class:  6.58 MB
+       Class:  15.50 MB
+        Both:  22.08 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 21.00 MB
+CDS: on
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 104.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 121.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 326.
+num_chunk_merges: 0.
+num_chunk_splits: 240.
+num_chunks_enlarged: 187.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=119168Kb used=440Kb max_used=440Kb free=118727Kb
+ bounds [0x000001e6ab470000, 0x000001e6ab6e0000, 0x000001e6b28d0000]
+CodeHeap 'profiled nmethods': size=119104Kb used=2160Kb max_used=2160Kb free=116944Kb
+ bounds [0x000001e6a38d0000, 0x000001e6a3b40000, 0x000001e6aad20000]
+CodeHeap 'non-nmethods': size=7488Kb used=2464Kb max_used=4168Kb free=5023Kb
+ bounds [0x000001e6aad20000, 0x000001e6ab140000, 0x000001e6ab470000]
+ total_blobs=2766 nmethods=1397 adapters=1274
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 6.031 Thread 0x000001e6c070d350 1388       3       org.lwjgl.opengl.GL20C::glUniform1iv (27 bytes)
+Event: 6.031 Thread 0x000001e6c070d350 nmethod 1388 0x000001e6a3aeac10 code [0x000001e6a3aeae00, 0x000001e6a3aeb258]
+Event: 6.230 Thread 0x000001e6bd543ee0 1389       4       org.lwjgl.system.MemoryUtil::memGetAddress (31 bytes)
+Event: 6.231 Thread 0x000001e6bd543ee0 nmethod 1389 0x000001e6ab4dce90 code [0x000001e6ab4dd000, 0x000001e6ab4dd070]
+Event: 6.324 Thread 0x000001e6bd543ee0 1390       4       java.nio.Buffer::limit (65 bytes)
+Event: 6.325 Thread 0x000001e6bd543ee0 nmethod 1390 0x000001e6ab4dd190 code [0x000001e6ab4dd320, 0x000001e6ab4dd430]
+Event: 7.018 Thread 0x000001e6c070d350 1392       3       sun.misc.Unsafe::getDouble (9 bytes)
+Event: 7.018 Thread 0x000001e6bd545240 1391       3       org.lwjgl.system.MemoryUtil::memGetDouble (9 bytes)
+Event: 7.018 Thread 0x000001e6c070d350 nmethod 1392 0x000001e6a3aeb490 code [0x000001e6a3aeb620, 0x000001e6a3aeb730]
+Event: 7.018 Thread 0x000001e6bd545240 nmethod 1391 0x000001e6a3aeb810 code [0x000001e6a3aeb9c0, 0x000001e6a3aebb98]
+Event: 7.058 Thread 0x000001e6bd545240 1393       3       org.lwjgl.opengl.GL11C::glDrawElements (8 bytes)
+Event: 7.058 Thread 0x000001e6bd545240 nmethod 1393 0x000001e6a3aebc90 code [0x000001e6a3aebe40, 0x000001e6a3aebf58]
+Event: 7.778 Thread 0x000001e6bd543ee0 1394       4       org.lwjgl.system.MemoryStack::nmalloc (61 bytes)
+Event: 7.779 Thread 0x000001e6bd543ee0 nmethod 1394 0x000001e6ab4dd510 code [0x000001e6ab4dd6a0, 0x000001e6ab4dd768]
+Event: 9.300 Thread 0x000001e6bd543ee0 1395       4       java.util.concurrent.atomic.AtomicLong::addAndGet (14 bytes)
+Event: 9.300 Thread 0x000001e6bd543ee0 nmethod 1395 0x000001e6ab4dd810 code [0x000001e6ab4dd9a0, 0x000001e6ab4dda38]
+Event: 9.353 Thread 0x000001e6bd543ee0 1396       4       java.util.concurrent.atomic.AtomicLong::compareAndSet (13 bytes)
+Event: 9.354 Thread 0x000001e6bd543ee0 nmethod 1396 0x000001e6ab4ddb10 code [0x000001e6ab4ddca0, 0x000001e6ab4ddd40]
+Event: 9.354 Thread 0x000001e6bd543ee0 1397       4       java.util.concurrent.atomic.AtomicLong::incrementAndGet (14 bytes)
+Event: 9.354 Thread 0x000001e6bd543ee0 nmethod 1397 0x000001e6ab4dde10 code [0x000001e6ab4ddfa0, 0x000001e6ab4de038]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (11 events):
+Event: 0.005 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\java.dll
+Event: 0.029 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\jsvml.dll
+Event: 0.055 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\net.dll
+Event: 0.057 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\nio.dll
+Event: 0.059 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\zip.dll
+Event: 0.105 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\jimage.dll
+Event: 0.120 Loaded shared library C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64\lwjgl.dll
+Event: 0.408 Loaded shared library C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64\lwjgl_opengl.dll
+Event: 0.649 Loaded shared library C:\Users\joshu\AppData\Local\Temp\imgui-java-natives\1.89.0\imgui-java64.dll
+Event: 0.682 Loaded shared library C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64\lwjgl_stb.dll
+Event: 0.686 Loaded shared library C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\verify.dll
+
+Deoptimization events (20 events):
+Event: 0.049 Thread 0x000001e69b1f73f0 DEOPT PACKING pc=0x000001e6ab472164 sp=0x000000c94e6fec40
+Event: 0.049 Thread 0x000001e69b1f73f0 DEOPT UNPACKING pc=0x000001e6aad746a2 sp=0x000000c94e6feb80 mode 2
+Event: 0.083 Thread 0x000001e69b1f73f0 DEOPT PACKING pc=0x000001e6a38ea5cc sp=0x000000c94e6fa5b0
+Event: 0.083 Thread 0x000001e69b1f73f0 DEOPT UNPACKING pc=0x000001e6aad74e42 sp=0x000000c94e6f99d0 mode 0
+Event: 0.100 Thread 0x000001e69b1f73f0 DEOPT PACKING pc=0x000001e6a38d89cc sp=0x000000c94e6f8f20
+Event: 0.100 Thread 0x000001e69b1f73f0 DEOPT UNPACKING pc=0x000001e6aad74e42 sp=0x000000c94e6f8388 mode 0
+Event: 0.115 Thread 0x000001e69b1f73f0 Uncommon trap: trap_request=0xffffff45 fr.pc=0x000001e6ab479e90 relative=0x0000000000000070
+Event: 0.115 Thread 0x000001e69b1f73f0 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000001e6ab479e90 method=java.io.WinNTFileSystem.isSlash(C)Z @ 9 c2
+Event: 0.115 Thread 0x000001e69b1f73f0 DEOPT PACKING pc=0x000001e6ab479e90 sp=0x000000c94e6fb450
+Event: 0.115 Thread 0x000001e69b1f73f0 DEOPT UNPACKING pc=0x000001e6aad746a2 sp=0x000000c94e6fb3d8 mode 2
+Event: 0.414 Thread 0x000001e69b1f73f0 Uncommon trap: trap_request=0xffffff54 fr.pc=0x000001e6ab4a9c10 relative=0x0000000000000070
+Event: 0.414 Thread 0x000001e69b1f73f0 Uncommon trap: reason=speculate_null_assert action=make_not_entrant pc=0x000001e6ab4a9c10 method=sun.misc.Unsafe.putLong(Ljava/lang/Object;JJ)V @ 7 c2
+Event: 0.414 Thread 0x000001e69b1f73f0 DEOPT PACKING pc=0x000001e6ab4a9c10 sp=0x000000c94e6febf0
+Event: 0.414 Thread 0x000001e69b1f73f0 DEOPT UNPACKING pc=0x000001e6aad746a2 sp=0x000000c94e6feb68 mode 2
+Event: 0.676 Thread 0x000001e69b1f73f0 DEOPT PACKING pc=0x000001e6a392f7c5 sp=0x000000c94e6fcd90
+Event: 0.676 Thread 0x000001e69b1f73f0 DEOPT UNPACKING pc=0x000001e6aad74e42 sp=0x000000c94e6fc1e0 mode 0
+Event: 0.939 Thread 0x000001e69b1f73f0 Uncommon trap: trap_request=0xffffff54 fr.pc=0x000001e6ab4abb8c relative=0x000000000000006c
+Event: 0.939 Thread 0x000001e69b1f73f0 Uncommon trap: reason=speculate_null_assert action=make_not_entrant pc=0x000001e6ab4abb8c method=sun.misc.Unsafe.getLong(Ljava/lang/Object;J)J @ 5 c2
+Event: 0.939 Thread 0x000001e69b1f73f0 DEOPT PACKING pc=0x000001e6ab4abb8c sp=0x000000c94e6fed10
+Event: 0.939 Thread 0x000001e69b1f73f0 DEOPT UNPACKING pc=0x000001e6aad746a2 sp=0x000000c94e6fec98 mode 2
+
+Classes loaded (20 events):
+Event: 0.609 Loading class jdk/internal/foreign/MemorySessionImpl
+Event: 0.609 Loading class java/lang/foreign/MemorySegment$Scope
+Event: 0.609 Loading class java/lang/foreign/MemorySegment$Scope done
+Event: 0.609 Loading class jdk/internal/foreign/MemorySessionImpl done
+Event: 0.610 Loading class java/nio/file/StandardCopyOption
+Event: 0.610 Loading class java/nio/file/StandardCopyOption done
+Event: 0.684 Loading class java/io/Externalizable
+Event: 0.685 Loading class java/io/Externalizable done
+Event: 0.705 Loading class java/util/ComparableTimSort
+Event: 0.705 Loading class java/util/ComparableTimSort done
+Event: 0.889 Loading class jdk/internal/module/ModulePatcher$PatchedModuleReader
+Event: 0.889 Loading class jdk/internal/module/ModulePatcher$PatchedModuleReader done
+Event: 0.889 Loading class sun/net/www/protocol/jrt/Handler
+Event: 0.889 Loading class sun/net/www/protocol/jrt/Handler done
+Event: 0.891 Loading class sun/text/resources/cldr/FormatData_en
+Event: 0.891 Loading class sun/text/resources/cldr/FormatData_en done
+Event: 0.892 Loading class sun/text/resources/cldr/FormatData_en_US
+Event: 0.892 Loading class sun/text/resources/cldr/FormatData_en_US done
+Event: 0.898 Loading class java/lang/SecurityException
+Event: 0.898 Loading class java/lang/SecurityException done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 0.164 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x00000006236bb148}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, long, long)'> (0x00000006236bb148) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.164 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x00000006236c0798}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, long)'> (0x00000006236c0798) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.165 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x00000006236c3e40}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, long, java.lang.Object)'> (0x00000006236c3e40) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.165 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x00000006236caf58}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, java.lang.Object, long)'> (0x00000006236caf58) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.180 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x0000000623781360}> (0x0000000623781360) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 0.180 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000006237816c0}> (0x00000006237816c0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 0.185 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x000000062379e728}: 'int java.lang.invoke.Invokers$Holder.invokeExact_MT(java.lang.Object, java.lang.Object)'> (0x000000062379e728) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.364 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x00000006237f8eb8}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, long, double, double)'> (0x00000006237f8eb8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.365 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x00000006230076a0}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, long, int, int, int)'> (0x00000006230076a0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.369 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x000000062301fd18}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, long, int, int, int, int)'> (0x000000062301fd18) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.404 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000623042230}: 'void java.lang.System.load(java.lang.String, java.lang.Class)'> (0x0000000623042230) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.404 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000623044ca0}: 'void java.lang.System.loadLibrary(java.lang.String, java.lang.Class)'> (0x0000000623044ca0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.407 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x0000000623054440}> (0x0000000623054440) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 0.407 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x00000006230547e0}> (0x00000006230547e0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 0.411 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x000000062305e730}> (0x000000062305e730) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 0.411 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x000000062305ea00}> (0x000000062305ea00) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 0.676 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000622d4e2a8}: 'void java.lang.System.load(java.lang.String, java.lang.Class)'> (0x0000000622d4e2a8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.677 Thread 0x000001e69b1f73f0 Exception <a 'java/lang/NoSuchMethodError'{0x0000000622d50d18}: 'void java.lang.System.loadLibrary(java.lang.String, java.lang.Class)'> (0x0000000622d50d18) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 773]
+Event: 0.681 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x0000000622d60910}> (0x0000000622d60910) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+Event: 0.681 Thread 0x000001e69b1f73f0 Exception <a 'sun/nio/fs/WindowsException'{0x0000000622d60c90}> (0x0000000622d60c90) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 520]
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (10 events):
+Event: 0.061 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.061 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 0.115 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.115 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 0.887 Executing VM operation: HandshakeAllThreads (Deoptimize)
+Event: 0.887 Executing VM operation: HandshakeAllThreads (Deoptimize) done
+Event: 1.902 Executing VM operation: Cleanup
+Event: 1.902 Executing VM operation: Cleanup done
+Event: 4.923 Executing VM operation: Cleanup
+Event: 4.923 Executing VM operation: Cleanup done
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (20 events):
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd52d6e0
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd52e330
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd5359f0
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd5368d0
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd53db20
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd537ac0
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd543ee0
+Event: 0.027 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6bd545240
+Event: 0.047 Thread 0x000001e6bd545240 Thread added: 0x000001e6c06d72e0
+Event: 0.048 Thread 0x000001e6bd545240 Thread added: 0x000001e6c070d350
+Event: 0.048 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6c07429c0
+Event: 0.050 Thread 0x000001e69b1f73f0 Thread added: 0x000001e6c074f410
+Event: 0.069 Thread 0x000001e6c06d72e0 Thread added: 0x000001e70613a0c0
+Event: 0.364 Thread 0x000001e70613a0c0 Thread exited: 0x000001e70613a0c0
+Event: 0.410 Thread 0x000001e6bd545240 Thread added: 0x000001e709e68830
+Event: 3.456 Thread 0x000001e709e68830 Thread exited: 0x000001e709e68830
+Event: 5.097 Thread 0x000001e6c070d350 Thread exited: 0x000001e6c070d350
+Event: 5.151 Thread 0x000001e6c06d72e0 Thread exited: 0x000001e6c06d72e0
+Event: 6.019 Thread 0x000001e6bd545240 Thread added: 0x000001e6c070d350
+Event: 7.778 Thread 0x000001e6c070d350 Thread exited: 0x000001e6c070d350
+
+
+Dynamic libraries:
+0x00007ff7d1f50000 - 0x00007ff7d1f5e000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\java.exe
+0x00007ffeae100000 - 0x00007ffeae368000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffe737a0000 - 0x00007ffe737c0000 	C:\Program Files\Norton\Suite\aswhook.dll
+0x00007ffead840000 - 0x00007ffead909000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffeab570000 - 0x00007ffeab95d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffeab960000 - 0x00007ffeabaab000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffe82560000 - 0x00007ffe82578000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\jli.dll
+0x00007ffe82540000 - 0x00007ffe8255e000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\VCRUNTIME140.dll
+0x00007ffeac0a0000 - 0x00007ffeac26c000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffe91ec0000 - 0x00007ffe9215a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.4484_none_3e0e6d4ce32ef3b3\COMCTL32.dll
+0x00007ffeab480000 - 0x00007ffeab4a7000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffead9b0000 - 0x00007ffead9db000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffeadd20000 - 0x00007ffeaddc9000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffeabcd0000 - 0x00007ffeabe07000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffeab250000 - 0x00007ffeab2f3000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffeadce0000 - 0x00007ffeadd0f000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffe787d0000 - 0x00007ffe788c2000 	C:\Program Files\Windhawk\Engine\1.6.1\64\windhawk.dll
+0x00007ffeabf60000 - 0x00007ffeac014000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffeaded0000 - 0x00007ffeadf76000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffeadfa0000 - 0x00007ffeae0b8000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe90a10000 - 0x00007ffe90a1c000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\vcruntime140_1.dll
+0x00007ffe767b0000 - 0x00007ffe7683d000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\msvcp140.dll
+0x00007ffdc4f90000 - 0x00007ffdc5d20000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\server\jvm.dll
+0x00007ffeadc60000 - 0x00007ffeadcd4000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffeaae70000 - 0x00007ffeaaece000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ffea41d0000 - 0x00007ffea41db000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe9c670000 - 0x00007ffe9c6a5000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffeaadd0000 - 0x00007ffeaade4000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ffea9fc0000 - 0x00007ffea9fdb000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffe82590000 - 0x00007ffe8259a000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\jimage.dll
+0x00007ffea8180000 - 0x00007ffea83c1000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffeacb90000 - 0x00007ffeacf16000 	C:\WINDOWS\System32\combase.dll
+0x00007ffeadae0000 - 0x00007ffeadbc0000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffe9c5d0000 - 0x00007ffe9c613000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffeabab0000 - 0x00007ffeabb49000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffe82400000 - 0x00007ffe8241f000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\java.dll
+0x00007ffeacf20000 - 0x00007ffead66a000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffeab300000 - 0x00007ffeab474000 	C:\WINDOWS\System32\wintypes.dll
+0x00007ffea8e70000 - 0x00007ffea96cb000 	C:\WINDOWS\SYSTEM32\windows.storage.dll
+0x00007ffeaddd0000 - 0x00007ffeadec5000 	C:\WINDOWS\System32\SHCORE.dll
+0x00007ffead940000 - 0x00007ffead9aa000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffeab160000 - 0x00007ffeab18f000 	C:\WINDOWS\SYSTEM32\profapi.dll
+0x00007ffe34920000 - 0x00007ffe349f7000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\jsvml.dll
+0x00007ffe823f0000 - 0x00007ffe82400000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\net.dll
+0x00007ffea2db0000 - 0x00007ffea2ece000 	C:\WINDOWS\SYSTEM32\WINHTTP.dll
+0x00007ffeaa560000 - 0x00007ffeaa5ca000 	C:\WINDOWS\system32\mswsock.dll
+0x00007ffe823a0000 - 0x00007ffe823b6000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\nio.dll
+0x00007ffe7c350000 - 0x00007ffe7c368000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\zip.dll
+0x00007ffe3a700000 - 0x00007ffe3a77b000 	C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64\lwjgl.dll
+0x00007ffe39b00000 - 0x00007ffe39b85000 	C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64\glfw.dll
+0x00007ffe380c0000 - 0x00007ffe3810b000 	C:\WINDOWS\SYSTEM32\dinput8.dll
+0x00007ffe657b0000 - 0x00007ffe657c2000 	C:\WINDOWS\SYSTEM32\xinput1_4.dll
+0x00007ffeaae40000 - 0x00007ffeaae6d000 	C:\WINDOWS\SYSTEM32\DEVOBJ.dll
+0x00007ffeaaee0000 - 0x00007ffeaaf37000 	C:\WINDOWS\SYSTEM32\cfgmgr32.dll
+0x00007ffea85b0000 - 0x00007ffea85e6000 	C:\WINDOWS\SYSTEM32\dwmapi.dll
+0x00007ffe9daf0000 - 0x00007ffe9dcd3000 	C:\WINDOWS\SYSTEM32\inputhost.dll
+0x00007ffea6c80000 - 0x00007ffea6da5000 	C:\WINDOWS\SYSTEM32\CoreMessaging.dll
+0x00007ffea7f80000 - 0x00007ffea802f000 	C:\WINDOWS\system32\uxtheme.dll
+0x00007ffeaa850000 - 0x00007ffeaa85c000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.DLL
+0x00007ffead6d0000 - 0x00007ffead830000 	C:\WINDOWS\System32\MSCTF.dll
+0x00007ffe7c100000 - 0x00007ffe7c218000 	C:\WINDOWS\SYSTEM32\opengl32.dll
+0x00007ffe7bb10000 - 0x00007ffe7bb3d000 	C:\WINDOWS\SYSTEM32\GLU32.dll
+0x00007ffea84e0000 - 0x00007ffea852d000 	C:\WINDOWS\SYSTEM32\dxcore.dll
+0x00007ffe935d0000 - 0x00007ffe935ea000 	C:\WINDOWS\SYSTEM32\windows.staterepositorycore.dll
+0x00007ffdd8290000 - 0x00007ffddab26000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvaki.inf_amd64_638171aa0e8c1799\nvoglv64.dll
+0x00007ffeac420000 - 0x00007ffeac8a6000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x00007ffeac270000 - 0x00007ffeac40e000 	C:\WINDOWS\System32\ole32.dll
+0x00007ffea7420000 - 0x00007ffea7436000 	C:\WINDOWS\SYSTEM32\WTSAPI32.dll
+0x00007ffeaa8a0000 - 0x00007ffeaa8b3000 	C:\WINDOWS\SYSTEM32\msasn1.dll
+0x00007ffea2110000 - 0x00007ffea214b000 	C:\WINDOWS\SYSTEM32\cryptnet.dll
+0x00007ffeabb50000 - 0x00007ffeabcc7000 	C:\WINDOWS\System32\CRYPT32.dll
+0x00007ffeaa910000 - 0x00007ffeaa97b000 	C:\WINDOWS\SYSTEM32\wldp.dll
+0x00007ffea1f90000 - 0x00007ffea210c000 	C:\WINDOWS\SYSTEM32\drvstore.dll
+0x00007ffeabe10000 - 0x00007ffeabe94000 	C:\WINDOWS\System32\WINTRUST.dll
+0x00007ffeaa0f0000 - 0x00007ffeaa126000 	C:\WINDOWS\SYSTEM32\ntmarta.dll
+0x00007ffead910000 - 0x00007ffead930000 	C:\WINDOWS\System32\imagehlp.dll
+0x00007ffeaa830000 - 0x00007ffeaa84b000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ffea9f20000 - 0x00007ffea9f5b000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ffeab130000 - 0x00007ffeab156000 	C:\WINDOWS\SYSTEM32\bcrypt.dll
+0x00007ffe9ddc0000 - 0x00007ffea1873000 	C:\WINDOWS\System32\DriverStore\FileRepository\nvaki.inf_amd64_638171aa0e8c1799\nvgpucomp64.dll
+0x00007ffe72e70000 - 0x00007ffe73184000 	C:\WINDOWS\system32\nvspcap64.dll
+0x00007ffeaaa10000 - 0x00007ffeaaa77000 	C:\WINDOWS\SYSTEM32\WINSTA.dll
+0x00007ffea1d20000 - 0x00007ffea1e70000 	C:\WINDOWS\SYSTEM32\textinputframework.dll
+0x00007ffea3430000 - 0x00007ffea3713000 	C:\WINDOWS\SYSTEM32\CoreUIComponents.dll
+0x00007ffe91d80000 - 0x00007ffe91dfd000 	C:\WINDOWS\system32\Oleacc.dll
+0x00007ffe51350000 - 0x00007ffe513b1000 	C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64\lwjgl_opengl.dll
+0x00007ffdc2590000 - 0x00007ffdc2d84000 	C:\Users\joshu\AppData\Local\Temp\imgui-java-natives\1.89.0\imgui-java64.dll
+0x00007ffe076a0000 - 0x00007ffe07740000 	C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64\lwjgl_stb.dll
+0x00007ffe81760000 - 0x00007ffe81770000 	C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\verify.dll
+0x00007ffeabea0000 - 0x00007ffeabf48000 	C:\WINDOWS\System32\clbcatq.dll
+0x00007ffe8c040000 - 0x00007ffe8c09e000 	C:\WINDOWS\system32\ApplicationTargetedFeatureDatabase.dll
+0x00007ffe9c390000 - 0x00007ffe9c5c8000 	C:\Windows\System32\twinapi.appcore.dll
+0x00007ffe7bbd0000 - 0x00007ffe7c003000 	C:\Windows\System32\uiautomationcore.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin;C:\WINDOWS\SYSTEM32;C:\Program Files\Norton\Suite;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.4484_none_3e0e6d4ce32ef3b3;C:\Program Files\Windhawk\Engine\1.6.1\64;C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin\server;C:\Users\joshu\AppData\Local\Temp\lwjgl_joshu\3.3.4+7\x64;C:\WINDOWS\System32\DriverStore\FileRepository\nvaki.inf_amd64_638171aa0e8c1799;C:\Users\joshu\AppData\Local\Temp\imgui-java-natives\1.89.0
+
+VM Arguments:
+jvm_args: -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant -ea 
+java_command: org.example.Main
+java_class_path (initial): C:\Users\joshu\OneDrive\Desktop\Projects\2D_engine\build\classes\java\main;C:\Users\joshu\OneDrive\Desktop\Projects\2D_engine\build\resources\main;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\io.github.spair\imgui-java-app\1.89.0\b489c73b9762cd339860450dba936a0db5052d86\imgui-java-app-1.89.0.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\io.github.spair\imgui-java-lwjgl3\1.89.0\ecaa154c833084700e8acb1c3a10c68761095516\imgui-java-lwjgl3-1.89.0.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-assimp\3.3.4\4651577de25afb21511c4b39e1ee3002ab1cad5d\lwjgl-assimp-3.3.4.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-assimp\3.3.4\65a7534e8a97b340c5e9716e15339b2b8964d656\lwjgl-assimp-3.3.4-natives-windows.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.4\7e46ecdec85db8738053cfde1414352cd62dab74\lwjgl-glfw-3.3.4.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.4\370ef92d15819a123c643dd2b0fc3a2d40bb263c\lwjgl-glfw-3.3.4-natives-windows.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.4\91e3d4b56d6d1369ef107b9d7801c9f38125c590\lwjgl-glfw-3.3.4-natives-linux.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.4\753fa860987242ceefa990a6062a18dff4908a33\lwjgl-glfw-3.3.4-natives-macos.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.4\4c358e983516fb6318b76c892ac35b79e8f2f8d9\lwjgl-glfw-3.3.4-natives-macos-arm64.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-nfd\3.3.4\176827b812b331189e36d4879926f50f4fc37b50\lwjgl-nfd-3.3.4.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-nfd\3.3.4\f67e276de66b5666322c6cbc7772786de99634bf\lwjgl-nfd-3.3.4-natives-windows.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-openal\3.3.4\9b74d3ea380c83353d42af43ad9659e04dabe84a\lwjgl-openal-3.3.4.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-openal\3.3.4\c4de8af803aacda71044418095a71cd63b569a15\lwjgl-openal-3.3.4-natives-windows.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-opengl\3.3.4\2852ac7d9f6fc71349f1ce28e2708ff1977f18af\lwjgl-opengl-3.3.4.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-opengl\3.3.4\f7ca4e75573a9ce83075bd86bc8a3e49ff106696\lwjgl-opengl-3.3.4-natives-windows.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-opengl\3.3.4\789df76d2e3da55349d858dfb81442149af7c7f4\lwjgl-opengl-3.3.4-natives-linux.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-opengl\3.3.4\ae0dd9d292744114f54d268a98cf1cd748b9994d\lwjgl-opengl-3.3.4-natives-macos.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-opengl\3.3.4\832e7deef981577ee7aeb3b9e1c74bc0e5d26cce\lwjgl-opengl-3.3.4-natives-macos-arm64.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-stb\3.3.4\5821735d5ef23f6da8542887344e57eb181b7cac\lwjgl-stb-3.3.4.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-stb\3.3.4\8310e565463ec8d369528e8b26a9b1518d079a01\lwjgl-stb-3.3.4-natives-windows.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl\3.3.4\b86c3e4832426e8a6b466013b7cb34b40e9ce956\lwjgl-3.3.4.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl\3.3.4\dd0927c1348cdcd9573fa24b7278ec1ac2bb0a76\lwjgl-3.3.4-natives-windows.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl\3.3.4\a7ccba1d3f2fef214943e74335a80cc65d04e49\lwjgl-3.3.4-natives-linux.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl\3.3.4\f952bb0894c946445942431de2e311feee635c00\lwjgl-3.3.4-natives-macos.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl\3.3.4\d12785da7cdca4921603b5dd83f712f5cdba3fc4\lwjgl-3.3.4-natives-macos-arm64.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.joml\joml\1.10.8\fc0a71dad90a2cf41d82a76156a0e700af8e4f8d\joml-1.10.8.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.20\73576ddf378c5b4f1f6b449fe6b119b8183fc078\kotlin-stdlib-jdk8-1.8.20.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\io.github.spair\imgui-java-binding\1.89.0\97c691effb5cf18f918546df7e770cdee19a2fa2\imgui-java-binding-1.89.0.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.20\3aa51faf20aae8b31e1a4bc54f8370673d7b7df4\kotlin-stdlib-jdk7-1.8.20.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.8.20\e72fc5e03ec6c064c678a6bd0d955c88d55b0c4a\kotlin-stdlib-1.8.20.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.8.20\5eddaaf234c8c49d03eebeb6a14feb7f90faca71\kotlin-stdlib-common-1.8.20.jar;C:\Users\joshu\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 4                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 15                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 4194304                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 532676608                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 8522825728                                {product} {ergonomic}
+   size_t MaxNewSize                               = 5112856576                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 4194304                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 8522825728                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\
+PATH=C:\Program Files\PlasticSCM5\server;C:\Program Files\PlasticSCM5\client;C:\Program Files\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.11.9-hotspot\bin;C:\Python312\Scripts\;C:\Python312\;C:\Program Files (x86)\Eclipse Adoptium\jdk-8.0.382.5-hotspot\bin;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\FFmpeg;C:\HaxeToolkit\haxe;C:\HaxeToolkit\neko;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Users\joshu\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\joshu\AppData\Local\Programs\Python\Python36\;C:\Users\joshu\.cargo\bin;C:\Users\joshu\AppData\Local\Microsoft\WindowsApps;C:\Users\joshu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\joshu\AppData\Local\GitHubDesktop\bin;C:\Users\joshu\AppData\Local\JetBrains\Toolbox\scripts;C:\msys64\ucrt64\bin;C:\Users\joshu\AppData\Roaming\npm;C:\Users\joshu\AppData\Local\spicetify;C:\Users\joshu\.dotnet\tools;;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;C:\Users\joshu\.aftman\bin
+USERNAME=joshu
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 151 Stepping 2, GenuineIntel
+TMP=C:\Users\joshu\AppData\Local\Temp
+TEMP=C:\Users\joshu\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.4484)
+OS uptime: 5 days 6:01 hours
+Hyper-V role detected
+
+CPU: total 20 (initial active 20) (10 cores per cpu, 2 threads per core) family 6 model 151 stepping 2 microcode 0x34, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, clwb, hv, serialize, rdtscp, rdpid, fsrm, f16c, cet_ibt, cet_ss
+Processor Information for processor 0
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 1
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 2
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 3
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 4
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 5
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 6
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 7
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 8
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 9
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 10
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 11
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 12
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 13
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 14
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 15
+  Max Mhz: 2100, Current Mhz: 2100, Mhz Limit: 2100
+Processor Information for processor 16
+  Max Mhz: 2100, Current Mhz: 1600, Mhz Limit: 1596
+Processor Information for processor 17
+  Max Mhz: 2100, Current Mhz: 1600, Mhz Limit: 1596
+Processor Information for processor 18
+  Max Mhz: 2100, Current Mhz: 1600, Mhz Limit: 1596
+Processor Information for processor 19
+  Max Mhz: 2100, Current Mhz: 1600, Mhz Limit: 1596
+
+Memory: 4k page, system-wide physical 32509M (10577M free)
+TotalPageFile size 46268M (AvailPageFile size 7615M)
+current process WorkingSet (physical memory assigned to process): 133M, peak: 137M
+current process commit charge ("private bytes"): 736M, peak: 739M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.7+6-LTS) for windows-amd64 JRE (21.0.7+6-LTS), built on 2025-04-15T00:00:00Z by "admin" with MS VC++ 17.7 (VS2022)
+
+END.
