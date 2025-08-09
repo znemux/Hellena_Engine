@@ -1,9 +1,9 @@
+group = "org.example"
+version = "1.0-SNAPSHOT"
+
 plugins {
     id("java")
 }
-
-group = "org.example"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -44,4 +44,7 @@ dependencies {
     implementation("org.lwjgl:lwjgl-opengl::natives-windows")
     implementation("org.lwjgl:lwjgl-stb::natives-windows")
     implementation("org.joml:joml:1.10.8")
+
+    // IMGUI-Java stuff
+    implementation("io.github.spair:imgui-java-app:1.89.0")
 }

@@ -2,8 +2,6 @@ package org.example.Hellena.core.Scenes;
 
 import org.example.Hellena.core.Camera;
 import org.example.Hellena.core.GameObject;
-import org.example.Hellena.core.Rendering.Texture;
-import org.example.Hellena.core.components.Sprite;
 import org.example.Hellena.core.components.SpriteRenderer;
 import org.example.Hellena.core.components.SpriteSheet;
 import org.example.Hellena.core.components.Transform;

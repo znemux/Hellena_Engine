@@ -5,6 +5,7 @@ import org.example.Hellena.core.Input.MouseListener;
 import org.example.Hellena.core.Scenes.LevelEditorScene;
 import org.example.Hellena.core.Scenes.LevelScene;
 import org.example.Hellena.core.Scenes.Scene;
+import org.example.Hellena.core.util.ImGuiLayer;
 import org.example.Hellena.core.util.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -24,6 +25,7 @@ public class Window {
 
     private static Window window = null;
     private static Scene currentScene;
+    private static ImGuiLayer imGuiLayer;
 
 
 
@@ -125,6 +127,8 @@ public class Window {
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 
+        imGuiLayer = new ImGuiLayer(glfwWindow, true);
+
         Window.changeScene(0);
     }
 
@@ -145,6 +149,8 @@ public class Window {
             }
 
             glfwSetWindowTitle(glfwWindow, "Hellena - " + currentScene.getName());
+
+            imGuiLayer.update();
 
             glfwSwapBuffers(glfwWindow);
 
