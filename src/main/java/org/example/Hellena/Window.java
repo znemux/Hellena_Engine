@@ -8,6 +8,8 @@ import org.example.Hellena.core.Scenes.Scene;
 import org.example.Hellena.core.util.ImGuiLayer;
 import org.example.Hellena.core.util.Time;
 import org.lwjgl.Version;
+import org.lwjgl.glfw.Callbacks;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 
@@ -20,6 +22,7 @@ public class Window {
     private int height, width;
     String title;
     private long glfwWindow;
+    private boolean isWindowOpen = false;
 
     public float r, g, b, a;
 
@@ -53,6 +56,7 @@ public class Window {
         }
 
         currentScene.init();
+        currentScene.load();
         currentScene.start();
     }
 
@@ -79,8 +83,17 @@ public class Window {
         glfwDestroyWindow(glfwWindow);
 
         // Terminate GLFW and free error callback
-        glfwTerminate();
-        glfwSetErrorCallback(null).free();
+        cleanup();
+    }
+
+    private void cleanup() {
+        // Free the window callbacks and destroy the window
+        Callbacks.glfwFreeCallbacks(glfwWindow);
+        GLFW.glfwDestroyWindow(glfwWindow);
+
+        // Terminate GLFW
+        GLFW.glfwTerminate();
+        GLFW.glfwSetErrorCallback(null).free();
     }
 
     public void init() {
@@ -105,10 +118,19 @@ public class Window {
             throw new IllegalStateException("Failed to create GLFW window");
         }
 
+        glfwSetWindowCloseCallback(glfwWindow, windowHandle -> {
+            System.out.println("Closed Window. Setting flag to false");
+            isWindowOpen = false;
+        });
+
         glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
         glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
         glfwSetKeyCallback(glfwWindow, KeyListener::keyCallback);
+        glfwSetWindowCloseCallback(glfwWindow, (window) -> {
+            currentScene.saveExit();
+            System.exit(0);
+        });
 
         // Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);
@@ -130,6 +152,8 @@ public class Window {
         imGuiLayer = new ImGuiLayer(glfwWindow, true);
 
         Window.changeScene(0);
+
+        this.isWindowOpen = true;
     }
 
     public void loop() {

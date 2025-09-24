@@ -47,4 +47,7 @@ dependencies {
 
     // IMGUI-Java stuff
     implementation("io.github.spair:imgui-java-app:1.89.0")
+
+    // GSON
+    implementation("com.google.code.gson:gson:2.13.2")
 }

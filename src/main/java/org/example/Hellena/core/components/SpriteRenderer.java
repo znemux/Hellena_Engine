@@ -7,23 +7,23 @@ import org.joml.Vector4f;
 
 public class SpriteRenderer extends Component{
 
-    private Vector4f color;
-    private Sprite sprite;
+    private Vector4f color = new Vector4f(1,1,1,1);
+    private Sprite sprite = new Sprite();
 
-    private Transform lastTransform;
-    private boolean isDirty = false;
+    private transient Transform lastTransform;
+    private transient boolean isDirty = true;
 
-    public SpriteRenderer(Vector4f color) {
-        this.color = color;
-        this.sprite = new Sprite(null);
-        this.isDirty = true;
-    }
-
-    public SpriteRenderer(Sprite sprite) {
-        this.sprite = sprite;
-        this.color = new Vector4f(1, 1, 1, 1);
-        this.isDirty = true;
-    }
+//    public SpriteRenderer(Vector4f color) {
+//        this.color = color;
+//        this.sprite = new Sprite(null);
+//        this.isDirty = true;
+//    }
+//
+//    public SpriteRenderer(Sprite sprite) {
+//        this.sprite = sprite;
+//        this.color = new Vector4f(1, 1, 1, 1);
+//        this.isDirty = true;
+//    }
 
     @Override
     public void start() {
@@ -42,13 +42,13 @@ public class SpriteRenderer extends Component{
     public void imgui() {
         float[] imColor = {color.x, color.y, color.z, color.w};
 
-        ImGui.begin("Sprite Renderer Inspector");
+        ImGui.begin("Inspector");
         if (ImGui.colorPicker4("Color Picker: ", imColor)) {
             this.color.set(imColor[0], imColor[1], imColor[2], imColor[3]);
             isDirty = true;
         }
-        ImGui.end();
 
+        ImGui.end();
     }
 
     public Vector4f getColor() {
