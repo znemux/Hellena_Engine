@@ -28,12 +28,12 @@ public class Shader {
 
             // Find first pattern after #type declaration
             int index = src.indexOf("#type") + 6;
-            int eol = src.indexOf("\r\n", index);
+            int eol = src.indexOf("\n", index);
             String firstPattern = src.substring(index, eol).trim();
 
             // Find second pattern after #type declaration
             index = src.indexOf("#type", eol) + 6;
-            eol = src.indexOf("\r\n", index);
+            eol = src.indexOf("\n", index);
             String secondPattern = src.substring(index, eol).trim();
 
             // Assign vertex or fragment source to first pattern
