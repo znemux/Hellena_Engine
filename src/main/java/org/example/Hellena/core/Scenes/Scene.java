@@ -90,10 +90,8 @@ public abstract class Scene {
     }
 
     public void saveExit() {
-        try {
-            FileWriter writer = new FileWriter("level.txt", false);
-            writer.write(gson.toJson(this.gameObjects));
-            writer.close();
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("level.txt"))) {
+            gson.toJson(this.gameObjects, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }

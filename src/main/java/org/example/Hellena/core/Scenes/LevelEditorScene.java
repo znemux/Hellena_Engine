@@ -35,25 +35,31 @@ public class LevelEditorScene extends Scene {
         setName("LevelEditorScene");
         this.camera = new Camera(new Vector2f());
 
+
         if (levelLoaded) {
             return;
         }
 
-        obj1 = new GameObject("Obj 1", new Transform(new Vector2f(200,100), new Vector2f(256,256)), 2);
-        obj1.addComponent(new SpriteRenderer());
-        obj1.getComponent(SpriteRenderer.class).setColor(new Vector4f(1, 0, 0, 1));
-        obj1.addComponent(new RigidBody());
-        this.addGameObjectToScene(obj1);
+        load();
+        
+        if (gameObjects == null || gameObjects.isEmpty()) {
+            obj1 = new GameObject("Obj 1", new Transform(new Vector2f(200,100), new Vector2f(256,256)), 2);
+            obj1.addComponent(new SpriteRenderer());
+            obj1.getComponent(SpriteRenderer.class).setColor(new Vector4f(1, 0, 0, 1));
+            obj1.addComponent(new RigidBody());
+            this.addGameObjectToScene(obj1);
 
-        GameObject obj2 = new GameObject("Obj 2", new Transform(new Vector2f(400,100), new Vector2f(256,256)), 1);
-        SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
-        Sprite obj2Sprite = new Sprite();
-        obj2Sprite.setTexture(AssetPool.getTexture("assets/textures/blendImage2.png"));
-        obj2SpriteRenderer.setSprite(obj2Sprite);
-        obj2.addComponent(obj2SpriteRenderer);
-        this.addGameObjectToScene(obj2);
 
-        this.activeGameObject = obj1;
+            GameObject obj2 = new GameObject("Obj 2", new Transform(new Vector2f(400,100), new Vector2f(256,256)), 1);
+            SpriteRenderer obj2SpriteRenderer = new SpriteRenderer();
+            Sprite obj2Sprite = new Sprite();
+            obj2Sprite.setTexture(AssetPool.getTexture("assets/textures/blendImage2.png"));
+            obj2SpriteRenderer.setSprite(obj2Sprite);
+            obj2.addComponent(obj2SpriteRenderer);
+            this.addGameObjectToScene(obj2);
+        }
+
+        this.activeGameObject = gameObjects.getFirst();
     }
 
     private void loadResources() {

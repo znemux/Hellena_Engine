@@ -56,7 +56,7 @@ public class Window {
         }
 
         currentScene.init();
-        currentScene.load();
+        // currentScene.load(); // The .load() is called in the .init()
         currentScene.start();
     }
 
